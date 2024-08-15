@@ -108,24 +108,3 @@ https://nodejs.org/en/blog/release/v21.7.1#2024-03-08-version-2171-current-targo
 
 任意のJavaScriptファイルでブレークポイントを設定し、
 デバッグ構成'JavaScript'を実行してブレークポイントが動作するか確認。
-
-
-## VS Code拡張機能
-■ PHP
-バージョン:v1.49.15728
-開発者:DEVSENSE devsense.com
--> 静的解析、フォーマット(Alt + Shift + F)形式統一のため
-
-■ PHP Debug
-バージョン:v1.35.0
-開発者:Xdebug xdebug.org
--> Xdebugの使用に必要となるため
-
-PHP Intelephense
-W3C Web Validator
--> コーディング規約統一のため
-
-JavaScript Debugger (Nightly)
--> JavaScriptデバッグのため
-
-
