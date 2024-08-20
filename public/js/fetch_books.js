@@ -1,5 +1,5 @@
 // getBooks.phpを呼び出すための関数
-function fetchBooks() {
+export function fetchBooks() {
     fetch("http://localhost:80/src/routes/getBooks.php")
         .then((response) => { // リクエストが成功したら
             if (!response.ok) {
