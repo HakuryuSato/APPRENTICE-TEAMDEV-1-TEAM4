@@ -1,6 +1,5 @@
 <?php
 
-
 require_once __DIR__ . '/../controllers/BookController.php';
 
 // DBからデータを送受信するためのクラスを呼び出し

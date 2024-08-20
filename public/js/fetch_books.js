@@ -9,6 +9,8 @@ function fetchBooks() {
             return response.json(); // JSON形式でレスポンスを解析
         })
         .then((data) => { // レスポンス解析が成功したら
+            return data; // データを返す
+
             /* dataの構造は以下
                 [
                     {
@@ -32,7 +34,7 @@ function fetchBooks() {
             */
 
 
-            return data; // データを返す
+           
         })
         .catch((error) => {
             console.error("Fetch error:", error);
