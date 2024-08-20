@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../../config/paths.php';
-require_once PATH_SRC_ROOT . '/controllers/BookController.php';
+
+require_once __DIR__ . '/../controllers/BookController.php';
 
 // DBからデータを送受信するためのクラスを呼び出し
 use Controllers\BookController;

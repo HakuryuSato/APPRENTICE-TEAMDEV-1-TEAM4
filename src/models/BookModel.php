@@ -10,11 +10,9 @@ class BookModel {
 
     // PDOでMySQLと接続  -------------------------------------------------
     public function __construct() { 
-        // パスの定義を含むファイルを読み込み
-        require_once __DIR__ . '/../config/paths.php';
 
         // データベース設定を含むファイルを読み込み
-        $dbConfig = require PATH_CONFIG . '/database.php';
+        $dbConfig = require __DIR__ . '/../../config/database.php';
 
         try {
             // データベース設定を使ってPDO接続を初期化
