@@ -1,8 +1,0 @@
-VSCode上で以下のコマンドを実行すると、XAMPPのDBにtest_dump.sqlが格納される。
-XAMPPのMariaDBのrootパスはデフォルト未設定、Enterでそのまま入れる。
-
-[Windows PowerShell]
-cmd /c "mysql -u root -p test < db/test_dump.sql"
-
-[Mac]
-mysql -u root -p < db/test_dump.sql
