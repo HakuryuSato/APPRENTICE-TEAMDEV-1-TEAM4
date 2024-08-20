@@ -89,7 +89,22 @@ INSERT INTO categories (category_id, category_name) VALUES
 (1, 'PHP'),
 (2, 'JavaScript'),
 (3, 'HTML/CSS'),
-(4, 'Laravel');
+(4, 'Laravel'),
+(5, 'MySQL');
+
+INSERT INTO category_cover (category_id, cover_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) VALUES
+(1, 'book.png', '#f5a623', '#000000'), -- 明るい色（オレンジ）に対して黒いテキスト
+(2, 'book.png', '#2d2d2d', '#FFFFFF'), -- 暗い色（ダークグレー）に対して白いテキスト
+(3, 'book.png', '#00aaff', '#000000'), -- 明るい色（ライトブルー）に対して黒いテキスト
+(4, 'book.png', '#1a1a1a', '#FFFFFF'), -- 暗い色（ダークネイビー）に対して白いテキスト
+(5, 'book.png', '#ffcc00', '#000000'); -- 明るい色（ゴールド）に対して黒いテキスト
 
 
 -- テストデータ 勉強セッション
@@ -196,12 +211,7 @@ INSERT INTO study_sessions (category_id, session_duration_minutes, session_date)
 
 
 
-INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) VALUES
-(1, 'book.png', '#f5a623', '#000000'), -- 明るい色（オレンジ）に対して黒いテキスト
-(2, 'book.png', '#2d2d2d', '#FFFFFF'), -- 暗い色（ダークグレー）に対して白いテキスト
-(3, 'book.png', '#00aaff', '#000000'), -- 明るい色（ライトブルー）に対して黒いテキスト
-(4, 'book.png', '#1a1a1a', '#FFFFFF'), -- 暗い色（ダークネイビー）に対して白いテキスト
-(5, 'book.png', '#ffcc00', '#000000'); -- 明るい色（ゴールド）に対して黒いテキスト
+
 
 
 
