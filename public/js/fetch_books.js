@@ -1,18 +1,45 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("../src/controllers/fetch_books.php")
-        .then((response) => response.json())
-        .then((data) => {
-            const booksDataDiv = document.getElementById("books-data");
-            if (data.error) {
-                booksDataDiv.innerHTML = "<p>Error: " + data.error + "</p>";
-            } else {
-                data.forEach((book) => {
-                    booksDataDiv.innerHTML +=
-                        `<p>ID: ${book.book_id}, Thickness: ${book.book_thickness}, Color: ${book.book_color}</p>`;
-                });
+// getBooks.phpを呼び出すための関数
+function fetchBooks() {
+    fetch("http://localhost:80/src/routes/getBooks.php")
+        .then((response) => { // リクエストが成功したら
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
             }
+
+            return response.json(); // JSON形式でレスポンスを解析
+        })
+        .then((data) => { // レスポンス解析が成功したら
+            return data; // データを返す
+
+            /* dataの構造は以下
+                [
+                    {
+                        "session_id": 1,
+                        "cover_image": "book.png",
+                        "cover_color": "#f5a623",
+                        "cover_text_color": "#000000",
+                        "category_name": "PHP",
+                        "book_thickness": 0
+                    },
+                    {
+                        "session_id": 2,
+                        "cover_image": "book.png",
+                        "cover_color": "#2d2d2d",
+                        "cover_text_color": "#FFFFFF",
+                        "category_name": "JavaScript",
+                        "book_thickness": 0
+                    },
+                    ...
+
+            */
+
+
+           
         })
         .catch((error) => {
-            console.error("Error fetching data:", error);
+            console.error("Fetch error:", error);
         });
-});
+}
+
+// ページがロードされたときに自動的にfetchBooksを呼び出す
+document.addEventListener("DOMContentLoaded", fetchBooks);
