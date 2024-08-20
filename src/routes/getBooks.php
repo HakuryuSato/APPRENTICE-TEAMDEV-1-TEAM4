@@ -9,7 +9,7 @@ use Controllers\BookController;
 try {
     // BookControllerのインスタンスを作成し、メソッドを呼び出す
     $controller = new BookController();
-    $booksData = $controller->getBookDataFromDB();
+    $booksData = $controller->getBookData();
 
     // JSON形式でデータを返す
     header('Content-Type: application/json');

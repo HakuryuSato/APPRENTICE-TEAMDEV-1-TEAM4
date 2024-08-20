@@ -1,47 +1,43 @@
-// function fetchBooks() {
-//     fetch('http://localhost:80/src/routes/getBooks.php')
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             return response.text();  // まずはテキストとしてレスポンスを解析
-//         })
-//         .then(data => {
-//             console.log('Response Text:', data);  // レスポンスが取得できているか確認
-//             // JSONに変換を試みる
-//             try {
-//                 const jsonData = JSON.parse(data);
-//                 console.log('Books Data:', jsonData);  // JSONに変換できたらログ出力
-//             } catch (e) {
-//                 console.error('Error parsing JSON:', e);  // JSON変換エラー時のログ
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Fetch error:', error);
-//         });
-// }
-
-
-
 // getBooks.phpを呼び出すための関数
 function fetchBooks() {
-    fetch('http://localhost:80/src/routes/getBooks.php')
-        .then(response => {
+    fetch("http://localhost:80/src/routes/getBooks.php")
+        .then((response) => { // リクエストが成功したら
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error("Network response was not ok");
             }
-            return response.json();  // JSON形式でレスポンスを解析
+
+            return response.json(); // JSON形式でレスポンスを解析
         })
-        .then(data => {
-            console.log('Books Data:', data);
-            // ここでデータを処理します。例として、コンソールに出力
-            // 必要に応じてHTMLにデータを反映させる処理を書く
+        .then((data) => { // レスポンス解析が成功したら
+            /* dataの構造は以下
+                [
+                    {
+                        "session_id": 1,
+                        "cover_image": "book.png",
+                        "cover_color": "#f5a623",
+                        "cover_text_color": "#000000",
+                        "category_name": "PHP",
+                        "book_thickness": 0
+                    },
+                    {
+                        "session_id": 2,
+                        "cover_image": "book.png",
+                        "cover_color": "#2d2d2d",
+                        "cover_text_color": "#FFFFFF",
+                        "category_name": "JavaScript",
+                        "book_thickness": 0
+                    },
+                    ...
+
+            */
+
+
+            return data; // データを返す
         })
-        .catch(error => {
-            console.error('Fetch error:', error);
-            // エラーメッセージを表示するなどのエラーハンドリング
+        .catch((error) => {
+            console.error("Fetch error:", error);
         });
 }
 
 // ページがロードされたときに自動的にfetchBooksを呼び出す
-document.addEventListener('DOMContentLoaded', fetchBooks);
+document.addEventListener("DOMContentLoaded", fetchBooks);

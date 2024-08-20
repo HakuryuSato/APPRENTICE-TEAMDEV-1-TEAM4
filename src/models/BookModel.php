@@ -5,14 +5,17 @@ namespace Models;
 use PDO;
 use Exception;
 
-class BookModel {
+class BookModel
+{
     private $pdo;
 
     // PDOでMySQLと接続  -------------------------------------------------
-    public function __construct() { 
+    public function __construct()
+    {
 
         // データベース設定を含むファイルを読み込み
         $dbConfig = require __DIR__ . '/../../config/database.php';
+
 
         try {
             // データベース設定を使ってPDO接続を初期化
@@ -21,6 +24,7 @@ class BookModel {
                 $dbConfig['username'],
                 $dbConfig['password']
             );
+
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             // 接続エラー時の例外処理
@@ -29,7 +33,8 @@ class BookModel {
     }
 
     // DBから本に必要なデータを取得するメソッド  -------------------------------------------------
-    public function getBookDataFromDB() { 
+    public function getBookDataFromDB()
+    {
         $sql = "
             SELECT 
                 s.session_id,
@@ -47,7 +52,8 @@ class BookModel {
             JOIN 
                 book_covers b ON cc.cover_id = b.cover_id
         ";
-        
+
+
         // クエリの実行
         $result = $this->pdo->query($sql);
         $studySessions = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +63,8 @@ class BookModel {
     }
 
     // 取得したDBのデータをJS用に変換するメソッド  -------------------------------------------------
-    private function convertStudySessionsToBooks(array $studySessions) { 
+    private function convertStudySessionsToBooks(array $studySessions)
+    {
         $BooksData = [];
 
         foreach ($studySessions as $session) {

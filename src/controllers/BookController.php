@@ -16,7 +16,7 @@ class BookController {
         $this->bookModel = new BookModel();
     }
 
-    public function getBookDataFromDB() {
+    public function getBookData() {
         // モデルからデータを取得
         $bookData = $this->bookModel->getBookDataFromDB();
 
