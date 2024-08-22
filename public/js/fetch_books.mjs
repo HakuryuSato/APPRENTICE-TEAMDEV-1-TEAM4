@@ -1,61 +1,17 @@
+// バックエンドのgetBooks.phpを呼び出す関数
 export async function fetchBooks() {
     try {
         const response = await fetch("http://localhost:80/src/routes/getBooks.php");
-        if (!response.ok) {
+        if (!response.ok) { // リクエスト失敗ならエラー処理
             throw new Error("Network response was not ok");
         }
+        
+        // 成功ならデータを返す
         const data = await response.json();
+        // console.log(data)
         return data;
     } catch (error) {
         console.error("Fetch error:", error);
         return null; // エラー時に null を返す
     }
 }
-
-
-
-
-
-
-
-
-// // getBooks.phpを呼び出すための関数
-// export function fetchBooks() {
-//     fetch("http://localhost:80/src/routes/getBooks.php")
-//         .then((response) => { // リクエストが成功したら
-//             if (!response.ok) {
-//                 throw new Error("Network response was not ok");
-//             }
-//             return response.json(); // JSON形式でレスポンスを解析
-//         })
-//         .then((data) => { // レスポンス解析が成功したら
-//             return data; // データを返す
-//             /* dataの構造は以下
-//                 [
-//                     {
-//                         "session_id": 1,
-//                         "cover_image": "book.png",
-//                         "cover_color": "#f5a623",
-//                         "cover_text_color": "#000000",
-//                         "category_name": "PHP",
-//                         "book_thickness": 0
-//                     },
-//                     {
-//                         "session_id": 2,
-//                         "cover_image": "book.png",
-//                         "cover_color": "#2d2d2d",
-//                         "cover_text_color": "#FFFFFF",
-//                         "category_name": "JavaScript",
-//                         "book_thickness": 0
-//                     },
-//                     ...
-
-//             */
-//         })
-//         .catch((error) => {
-//             console.error("Fetch error:", error);
-//         });
-// }
-
-// // ページがロードされたときに自動的にfetchBooksを呼び出す
-// // document.addEventListener("DOMContentLoaded", fetchBooks);
