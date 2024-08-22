@@ -1,4 +1,4 @@
-const Book = require("./Book.mjs");
+import { Book } from "./Book.mjs";
 
 // 棚クラス
 export class Shelf {
