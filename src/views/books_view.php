@@ -6,6 +6,6 @@
 <body>
     <h1>Books Data</h1>
     <div id="books-data"></div>
-    <script src="../public/js/fetch_books.js"></script>
+    <!-- <script src="../public/js/main.js"></script> -->
 </body>
 </html>
