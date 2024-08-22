@@ -5,13 +5,10 @@ export function fetchBooks() {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
-
             return response.json(); // JSON形式でレスポンスを解析
         })
         .then((data) => { // レスポンス解析が成功したら
-            // console.log(data)
             return data; // データを返す
-
             /* dataの構造は以下
                 [
                     {

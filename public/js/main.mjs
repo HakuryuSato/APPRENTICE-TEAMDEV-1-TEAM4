@@ -2,7 +2,12 @@
 //  ファイル分割する方法を調べるのと、fetchから値取得する方法や取得したデータが正しいか確認すること
 
 // // fetch_books.jsをインポートする
-import { fetchBooks } from './fetch_books.mjs';
+import { fetchBooks } from "./fetch_books.mjs";
+import { BookshelfRenderer } from "./BookshelfRenderer.mjs";
+import { Shelf } from "./Shelf.mjs";
+import { Book } from "./Book.mjs";
+
+
 
 // fetchBooksを呼び出し、inputDataにデータを格納
 let inputData;
@@ -18,45 +23,10 @@ let inputData;
 // console.log(inputData)
 
 // 画像ファイルのパス
-const bookShelfImagePath = './images/book_shelf.png';
-const bookImagePath = './images/book.png';
+const bookShelfImagePath = "./images/book_shelf.png";
+const bookImagePath = "./images/book.png";
 
-
-
-
-// 本棚描画クラス
-class BookshelfRenderer {
-    constructor(shelfImage, shelves) {
-        this.shelfImage = shelfImage;
-        this.shelves = shelves;
-    }
-
-    render(canvasId) {
-        const canvas = document.getElementById(canvasId);
-        const ctx = canvas.getContext('2d');
-
-        const shelfImage = new Image();
-        shelfImage.src = this.shelfImage;
-
-        shelfImage.onload = () => {
-            // 背景の本棚画像を描画
-            ctx.drawImage(shelfImage, 0, 0);
-
-            // 各棚に本を描画
-            let shelfY = 50;
-            for (const shelf of this.shelves) {
-                shelf.draw(ctx, shelfY);
-                shelfY += 120;  // 次の棚のY座標
-            }
-        };
-    }
-}
-
-
-
-
-
-// 入力データの本をオブジェクトに変換して追加
+// テスト用データ
 // const inputData = [
 //     {
 //         "session_id": 1,
@@ -81,7 +51,13 @@ let currentShelf = new Shelf(20);
 shelves.push(currentShelf);
 
 for (const data of inputData) {
-    const book = new Book(data.session_id, data.cover_color, data.cover_text_color, data.category_name, data.book_thickness);
+    const book = new Book(
+        data.session_id,
+        data.cover_color,
+        data.cover_text_color,
+        data.category_name,
+        data.book_thickness,
+    );
     try {
         currentShelf.addBook(book);
     } catch (e) {
@@ -94,6 +70,6 @@ for (const data of inputData) {
 
 // 本棚を描画して表示
 const renderer = new BookshelfRenderer(bookShelfImagePath, shelves);
-renderer.render('bookshelfCanvas');  // 'bookshelfCanvas'はHTMLにあるcanvas要素のID
+renderer.render("bookshelfCanvas"); // 'bookshelfCanvas'はHTMLにあるcanvas要素のID
 
 // document.addEventListener("DOMContentLoaded", fetchBooks);
