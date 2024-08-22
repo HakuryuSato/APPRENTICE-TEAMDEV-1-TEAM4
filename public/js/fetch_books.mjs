@@ -9,6 +9,7 @@ export function fetchBooks() {
             return response.json(); // JSON形式でレスポンスを解析
         })
         .then((data) => { // レスポンス解析が成功したら
+            // console.log(data)
             return data; // データを返す
 
             /* dataの構造は以下
@@ -32,9 +33,6 @@ export function fetchBooks() {
                     ...
 
             */
-
-
-           
         })
         .catch((error) => {
             console.error("Fetch error:", error);
@@ -42,4 +40,4 @@ export function fetchBooks() {
 }
 
 // ページがロードされたときに自動的にfetchBooksを呼び出す
-document.addEventListener("DOMContentLoaded", fetchBooks);
+// document.addEventListener("DOMContentLoaded", fetchBooks);
