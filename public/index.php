@@ -18,9 +18,7 @@
 </head>
 <body>
     <canvas id="bookshelfCanvas" width="600" height="800"></canvas>
-    <!-- <script type="module" src="js/fetch_books.js"></script> -->
-    <script type="module" src="js/main.js"></script>
-    <!-- <script type="module" src="js/test_import.js"></script> -->
+    <script type="module" src="js/main.mjs"></script>
 
   
     
