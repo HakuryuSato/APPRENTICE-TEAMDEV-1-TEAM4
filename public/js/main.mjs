@@ -15,7 +15,7 @@ const inputData = await fetchBooks();
 [
     {
         "session_id": 1,
-        "cover_image": "book.png",
+        "cover_image": "normal",
         "cover_color": "red",
         "cover_text_color": "#000000",
         "category_name": "PHP",
@@ -23,7 +23,7 @@ const inputData = await fetchBooks();
     },
     {
         "session_id": 2,
-        "cover_image": "book.png",
+        "cover_image": "normal",
         "cover_color": "red",
         "cover_text_color": "#FFFFFF",
         "category_name": "JavaScript",
@@ -54,6 +54,7 @@ for (const data of inputData) { // DBに存在する本データ数分ループ
     /*  book引数の例
         {
         sessionId: 2,
+        coverImage: 'normal',
         coverColor: "red",
         coverTextColor: "#FFFFFF",
         categoryName: "JavaScript",
@@ -63,6 +64,7 @@ for (const data of inputData) { // DBに存在する本データ数分ループ
 
     const book = new Book(
         data.session_id,
+        data.cover_image,
         data.cover_color,
         data.cover_text_color,
         data.category_name,
@@ -85,23 +87,4 @@ for (const data of inputData) { // DBに存在する本データ数分ループ
         currentBookShelf.render("bookshelfCanvas");
         break;
     }
-
-    // // 本をまだ棚に格納できるなら
-    // if(currentShelf.canAddBook(book)){
-    //     // 格納
-    //     currentShelf.addBook(book)
-
-    // // 棚に格納できず、本棚にも格納できないなら
-    // }else if(!currentBookShelf.canAddShelf()){ // できないなら
-    //     // 本棚を描画
-    //     // 'bookshelfCanvas'はHTMLにあるcanvas要素のID、本棚が増えた場合、名前を追加する必要がある
-    //     currentBookShelf.render("bookshelfCanvas")
-
-    // // 棚には本を追加できないが、本棚に棚を追加できるなら
-    // }else{
-    //     // 新たな棚を1段追加して格納
-    //     currentBookShelf.addShelf(currentShelf)
-    //     currentShelf = new Shelf();
-    //     currentShelf.addBook(book)
-    // }
 }

@@ -3,13 +3,15 @@ export class Book {
     // コンストラクタ引数として、
     // fetch_booksで受け取ったbookデータをプロパティに設定
     constructor(
-        sessionId, //
+        sessionId, // 1
+        coverImage, // normal
         coverColor, // 'red'
-        coverTextColor, //
+        coverTextColor, // #000000
         categoryName, // 'PHP'
         bookThickness, // 1 ~ 4
     ) {
         this.sessionId = sessionId;
+        this.coverImage = coverImage;
         this.coverColor = coverColor;
         this.coverTextColor = coverTextColor;
         this.categoryName = categoryName;
@@ -21,7 +23,7 @@ export class Book {
         const bookHeight = 237;
 
         // 厚み、色に応じて画像選択
-        bookImage.src = `./images/book_${this.coverColor}_${this.bookThickness}.png`;
+        bookImage.src = `./images/${this.coverImage}_${this.coverColor}_${this.bookThickness}.png`;
 
         bookImage.onload = () => { // ブラウザにオブジェクトを読み込んだ時に発火
 
