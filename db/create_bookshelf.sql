@@ -100,11 +100,11 @@ INSERT INTO category_cover (category_id, cover_id) VALUES
 (5, 5);
 
 INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) VALUES
-(1, 'book.png', 'red', '#000000'), -- 明るい色（オレンジ）に対して黒いテキスト
-(2, 'book.png', 'red', '#000000'), -- 暗い色（ダークグレー）に対して白いテキスト
-(3, 'book.png', 'red', '#000000'), -- 明るい色（ライトブルー）に対して黒いテキスト
-(4, 'book.png', 'red', '#000000'), -- 暗い色（ダークネイビー）に対して白いテキスト
-(5, 'book.png', 'red', '#000000'); -- 明るい色（ゴールド）に対して黒いテキスト
+(1, 'normal', 'red', '#000000'), 
+(2, 'normal', 'red', '#000000'), 
+(3, 'normal', 'red', '#000000'), 
+(4, 'normal', 'red', '#000000'), 
+(5, 'normal', 'red', '#000000');
 
 
 -- テストデータ 勉強セッション
