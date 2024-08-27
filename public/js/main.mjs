@@ -6,6 +6,9 @@ import { Book } from "./Book.mjs";
 // DB通信用関数
 import { fetchBooks } from "./fetch_books.mjs";
 
+// 佐藤：一時的に本データの取得と描画を直接記述していますが、
+//      モーダルの管理などが加わった際に分割する必要があります。
+
 // DBから本のデータ取得
 const inputData = await fetchBooks();
 /* inputData例
@@ -28,18 +31,27 @@ const inputData = await fetchBooks();
     },
 */
 
+/*
+名称の定義
+棚：横に伸びる1段の棚
+本棚：5段の棚を持つ、1列の本棚
 
 
-// 棚を作成 *未完成
-const shelves = [];
+メモ：複数ページに分ける場合、ここで取得するDBデータの範囲をsession_idで分け、
+表示するページごとに次のsessin_idから取得し再描画する。
+*/
+
+// 棚5段分を格納する本棚オブジェクト
+const currentBookShelf = new BookshelfRenderer();
+
+// 棚1段目を作成
 let currentShelf = new Shelf();
-shelves.push(currentShelf);
+currentBookShelf.addShelf(currentShelf);
 
-
+// データを本オブジェクトに変換し、棚へ格納する
 for (const data of inputData) { // DBに存在する本データ数分ループ
     // dataからBookオブジェクト作成
-
-        /*  book引数の例
+    /*  book引数の例
         {
         sessionId: 2,
         coverColor: "#2d2d2d",
@@ -57,18 +69,39 @@ for (const data of inputData) { // DBに存在する本データ数分ループ
         data.book_thickness,
     );
 
-    
-
-
-    try { // ShelfクラスにBook追加を試みる
+    // 本をまだ棚に格納できるなら
+    if (currentShelf.canAddBook(book)) {
+        // 現在の棚に本を格納
         currentShelf.addBook(book);
-    } catch (e) { // 失敗なら新たな棚を作成
-        currentShelf = new Shelf(20);
-        shelves.push(currentShelf);
+
+        // 棚には本を追加できないが、本棚に棚を追加できるなら
+    } else if (currentBookShelf.canAddShelf()) {
+        currentBookShelf.addShelf(currentShelf);
+        currentShelf = new Shelf();
         currentShelf.addBook(book);
+
+        // 棚にも本棚にも追加できない場合、本棚を描画
+    } else {
+        currentBookShelf.render("bookshelfCanvas");
+        break;
     }
-}
 
-// 本棚を描画して表示
-const renderer = new BookshelfRenderer(shelves);
-renderer.render("bookshelfCanvas"); // 'bookshelfCanvas'はHTMLにあるcanvas要素のID
+    // // 本をまだ棚に格納できるなら
+    // if(currentShelf.canAddBook(book)){
+    //     // 格納
+    //     currentShelf.addBook(book)
+
+    // // 棚に格納できず、本棚にも格納できないなら
+    // }else if(!currentBookShelf.canAddShelf()){ // できないなら
+    //     // 本棚を描画
+    //     // 'bookshelfCanvas'はHTMLにあるcanvas要素のID、本棚が増えた場合、名前を追加する必要がある
+    //     currentBookShelf.render("bookshelfCanvas")
+
+    // // 棚には本を追加できないが、本棚に棚を追加できるなら
+    // }else{
+    //     // 新たな棚を1段追加して格納
+    //     currentBookShelf.addShelf(currentShelf)
+    //     currentShelf = new Shelf();
+    //     currentShelf.addBook(book)
+    // }
+}
