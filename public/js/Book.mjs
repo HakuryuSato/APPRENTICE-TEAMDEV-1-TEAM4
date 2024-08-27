@@ -20,11 +20,8 @@ export class Book {
         const bookImage = new Image();
         const bookHeight = 237;
 
-        // 厚みに応じて画像選択
+        // 厚み、色に応じて画像選択
         bookImage.src = `./images/book_${this.coverColor}_${this.bookThickness}.png`;
-
-        // // テスト用
-        // bookImage.src = './images/book.png'
 
         bookImage.onload = () => { // ブラウザにオブジェクトを読み込んだ時に発火
 
