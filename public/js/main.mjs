@@ -16,7 +16,7 @@ const inputData = await fetchBooks();
     {
         "session_id": 1,
         "cover_image": "book.png",
-        "cover_color": "#f5a623",
+        "cover_color": "red",
         "cover_text_color": "#000000",
         "category_name": "PHP",
         "book_thickness": 0
@@ -24,7 +24,7 @@ const inputData = await fetchBooks();
     {
         "session_id": 2,
         "cover_image": "book.png",
-        "cover_color": "#2d2d2d",
+        "cover_color": "red",
         "cover_text_color": "#FFFFFF",
         "category_name": "JavaScript",
         "book_thickness": 0
@@ -54,7 +54,7 @@ for (const data of inputData) { // DBに存在する本データ数分ループ
     /*  book引数の例
         {
         sessionId: 2,
-        coverColor: "#2d2d2d",
+        coverColor: "red",
         coverTextColor: "#FFFFFF",
         categoryName: "JavaScript",
         bookThickness: 0,
