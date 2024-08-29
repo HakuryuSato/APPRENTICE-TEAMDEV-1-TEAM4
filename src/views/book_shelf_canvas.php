@@ -1,1 +1,1 @@
-<canvas id="bookshelfCanvas" width="600" height="800"></canvas>
+<canvas id="bookshelfCanvas"></canvas>
