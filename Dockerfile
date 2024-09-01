@@ -24,5 +24,6 @@ COPY apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 # プロジェクトファイルをコピー
 COPY . /var/www/html
 
+
 # # Composerを使用して依存関係をインストール
 # RUN composer install --working-dir=/var/www/html
