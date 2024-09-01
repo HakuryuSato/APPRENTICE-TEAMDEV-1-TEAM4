@@ -13,26 +13,16 @@ export class Modal {
         this.closeButton = this.modal.querySelector(".close");
 
         console.log(`Modal element with id '${id}' found.`);
-        this.initEvents();
-        console.log("modal init")
     }
 
     open() {
-        // this.modal.style.display = "block";
         console.log("modal open")
-        this.modal.style.setProperty('display', 'block', 'important');
+        this.modal.style.setProperty('display', 'block');
     }
 
     close() {
-        // this.modal.style.display = "none";
         console.log("modal close");
         this.modal.style.setProperty('display', 'none', 'important');
     }
 
-    initEvents() {
-        this.closeButton.addEventListener('click', () => this.close());
-        window.addEventListener('click', (event) => {
-            if (event.target === this.modal) this.close();
-        });
-    }
 }
