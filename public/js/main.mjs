@@ -2,12 +2,54 @@
 import { BookshelfRenderer } from "./BookshelfRenderer.mjs";
 import { Shelf } from "./Shelf.mjs";
 import { Book } from "./Book.mjs";
+import { Modal } from "./Modal.mjs"
 
 // DB通信用関数
 import { fetchBooks } from "./fetch_books.mjs";
 
-// 佐藤：一時的に本データの取得と描画を直接記述していますが、
-//      モーダルの管理などが加わった際に分割する必要があります。
+
+console.log("aaa")
+
+// 偉人モーダルテスト用
+document.addEventListener("DOMContentLoaded", () => {
+    // 偉人モーダル用インスタンス
+    const ijinModal = new Modal("ijin_modal");
+
+    // モーダルを開くトリガーを設定
+    const openIjinModalButton = document.getElementById("openIjinModal");
+    openIjinModalButton.addEventListener("click", () => {
+        ijinModal.open();
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // DBから本のデータ取得
 const inputData = await fetchBooks();
