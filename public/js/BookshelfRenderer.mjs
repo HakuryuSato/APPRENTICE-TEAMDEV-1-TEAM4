@@ -1,33 +1,45 @@
 // 本棚描画クラス
 export class BookshelfRenderer {
-    constructor(shelves) {
-        // this.shelfImage = shelfImage; // 本棚の柄を変える？
-        this.shelves = shelves;
+    constructor() {
+        this.shelves = [];
+
+        // 本棚の柄を変える？
+        // this.shelfImage = shelfImage;
     }
 
+    // 棚を追加できるかを返す
+    canAddShelf() {
+        return this.shelves.length < 5;
+    }
+
+    // 棚を1段追加する
+    addShelf(shelf) {
+        this.shelves.push(shelf);
+    }
+
+    // 本棚を描画する
     render(canvasId) {
         const canvas = document.getElementById(canvasId);
         const ctx = canvas.getContext("2d");
 
         const shelfImage = new Image();
         shelfImage.src = "./images/book_shelf.png";
+        canvas.width = 968;
+        canvas.height = 1288;
 
         shelfImage.onload = () => {
-            // 原点を左下に設定し、Y軸を反転
-            ctx.translate(0, canvas.height);
-            ctx.scale(1, -1);
-
             // 背景の本棚画像を描画
             ctx.drawImage(shelfImage, 0, 0);
 
-
-
-            // 棚1段に本を描画
-            let shelfY = 13;
-            for (const shelf of this.shelves) {
+            this.shelves.forEach((shelf, index) => {
+                let shelfY;
+                if (index === 0) {
+                    shelfY = 20; // 0番目は20
+                } else {
+                    shelfY = 275 + (index - 1) * 250; // 1番目以降は275, 525, 775, 1025...
+                }
                 shelf.drawBooks(ctx, shelfY);
-                shelfY += 130; // 次の棚のY座標
-            }
+            });
 
         };
     }

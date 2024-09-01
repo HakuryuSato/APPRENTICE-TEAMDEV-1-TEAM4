@@ -69,14 +69,14 @@ class BookModel
 
         foreach ($studySessions as $session) {
             $minutes = $session['session_duration_minutes'];
-            $bookThickness = 0;
+            $bookThickness = 1;
 
             if ($minutes > 15 && $minutes <= 30) {
-                $bookThickness = 1;
-            } elseif ($minutes > 30 && $minutes <= 60) {
                 $bookThickness = 2;
-            } elseif ($minutes > 60) {
+            } elseif ($minutes > 30 && $minutes <= 60) {
                 $bookThickness = 3;
+            } elseif ($minutes > 60) {
+                $bookThickness = 4;
             }
 
             $BooksData[] = [
