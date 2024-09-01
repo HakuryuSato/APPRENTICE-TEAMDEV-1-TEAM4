@@ -1,5 +1,8 @@
 import { renderShelf } from "./renderShelf.mjs";
-import { addModalEventListener } from "./addModalEventListener.mjs";
+import { addEventListener } from "./addEventListener.mjs";
 
-addModalEventListener();
+// イベントリスナーを追加
+addEventListener();
+
+// 本棚を描画
 renderShelf();
