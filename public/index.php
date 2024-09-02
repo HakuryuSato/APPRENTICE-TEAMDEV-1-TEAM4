@@ -20,9 +20,9 @@
 </head>
 
 <body>
-    <div name="header">
-        <div class="" id="">累計勉強時間</div>
-        <div class="" id="" name="totaltimer">00:00:00</div>
+    <div class="header">
+        <div class="total" id="">累計勉強時間</div>
+        <div class="total timer" id="" name="totaltimer">00:00:00</div>
     </div>
 
     <!--本棚部分-->
@@ -30,23 +30,21 @@
         <canvas id="bookshelfCanvas" width="600" height="800"></canvas>
     </div>
 
-    <div name="record-container">
+    <form action="">
         <div class="timer-container">
-            <form action="">
-                <p>学習内容</p>
-                <input type="text">
-                <input type="text">
-                <div class="" id="" name="timer" 00:00:00></div>
-                <button type="submit">開始</button>
-                <button type="submit">リセット</button>
-            </form>
+            <div class="recent">学習内容：</div>
+            <input class="recent" type="text">
+            <input class="recent" type="text">
+            <div class="recent" class="timer" id="" name="timer">00:00:00</div>
+            <button class="recent" type="submit">開始</button>
+            <button class="recent" type="submit">リセット</button>
         </div>
         <div>
             <!--ここに記録済みタスクが縦に並ぶ-->
         </div>
         <!-- 提出ボタン-->
-        <button type="submit">今日の学習を終了する</button>
-    </div>
+        <button calss="submit" type="submit">今日の学習を終了する</button>
+    </form>
     <script type="module" src="js/main.mjs"></script>
 
 
