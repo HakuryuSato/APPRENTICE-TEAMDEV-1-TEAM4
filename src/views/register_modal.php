@@ -1,12 +1,10 @@
-<!-- 佐藤：塚本さんに作っていただいたベースです！-->
+<!-- モーダルで1日終了時に出る画面（未修正） -->
 
 <div id="register-modal" class='modal'>
     <div class="timer-container">
         <form action="">
             <p>学習内容</p>
-            <select>
-                <option value="new_tasl">新規登録</option>
-            </select>
+            <div></div>
             <input type="text">
             <div class="" id="" name="timer" 00:00:00></div>
             <button type="submit">開始</button>
