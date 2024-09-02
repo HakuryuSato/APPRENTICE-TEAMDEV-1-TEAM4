@@ -1,5 +1,7 @@
 <?php
 
+// DBから取得したデータを、様々な形へ変換するためのコントローラー
+
 // 名前空間を指定
 namespace Controllers;
 
@@ -23,9 +25,20 @@ class BookController {
         // 取得したデータを変換
         $bookData = $this->convertStudySessionsToBooks($studySessions);
 
-
         // データをJSON形式で返す
         return json_encode($bookData);
+    }
+
+    public function getCategoriesData(){
+
+        // モデルからデータを取得
+        $categories = $this->bookModel->getCategoriesFromDB();
+
+        // 変換が必要であれば変換
+        // $categories = $this->
+
+        // データをJSON形式で返す
+        return json_encode($categories);
     }
 
     
@@ -59,6 +72,9 @@ class BookController {
 
         return $BooksData;
     }
+
+    
+    
 
 
 
