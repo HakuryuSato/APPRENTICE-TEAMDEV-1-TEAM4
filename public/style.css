@@ -1,0 +1,12 @@
+/* フォント設定 */
+@font-face {
+  font-family: 'Sawarabi_Gothic';
+  font-weight: 400;
+  src: url(public/images/fonts/SawarabiGothic-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Oxanium';
+  font-weight: 400;
+  src: url(public/images/fonts/Oxanium-Regular.ttf) format('truetype');
+}
+
