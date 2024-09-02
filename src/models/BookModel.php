@@ -1,5 +1,7 @@
 <?php
 
+// DB操作を行うためのモデル
+
 namespace Models;
 
 use PDO;
@@ -31,7 +33,7 @@ class BookModel
         }
     }
 
-    // DBから本に必要なデータを取得するメソッド  -------------------------------------------------
+    // 本棚用データを取得
     public function getBookDataFromDB()
     {
         $sql = "
@@ -60,9 +62,9 @@ class BookModel
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
+
     // カテゴリーとカバーデータを取得する
-    public function getCategoryCoverData()
+    public function getCategoryCoverDataFromDB()
     {
         $sql = "
         SELECT 
@@ -82,11 +84,23 @@ class BookModel
             book_covers b ON cc.cover_id = b.cover_id
     ";
 
-        // $result = $this->pdo->query($sql);
-        // $studySessions = $result->fetchAll(PDO::FETCH_ASSOC);
-
-        // return $this->convertStudySessionsToBooks($studySessions);
+        $result = $this->pdo->query($sql);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // カテゴリー名の一覧を取得する
+    public function getCategoriesFromDB()
+    {
+        $sql = "
+            SELECT 
+                category_name
+            FROM 
+                categories
+        ";
     
+        $result = $this->pdo->query($sql);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }
