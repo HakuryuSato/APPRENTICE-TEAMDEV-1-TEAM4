@@ -1,1 +1,0 @@
-<button id='start-study-button'>勉強を始める</button>

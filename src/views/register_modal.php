@@ -4,7 +4,9 @@
     <div class="timer-container">
         <form action="">
             <p>学習内容</p>
-            <input type="text">
+            <select>
+                <option value="new_tasl">新規登録</option>
+            </select>
             <input type="text">
             <div class="" id="" name="timer" 00:00:00></div>
             <button type="submit">開始</button>
