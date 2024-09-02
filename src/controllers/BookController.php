@@ -18,9 +18,49 @@ class BookController {
 
     public function getBookData() {
         // モデルからデータを取得
-        $bookData = $this->bookModel->getBookDataFromDB();
+        $studySessions = $this->bookModel->getBookDataFromDB();
+
+        // 取得したデータを変換
+        $bookData = $this->convertStudySessionsToBooks($studySessions);
+
 
         // データをJSON形式で返す
         return json_encode($bookData);
     }
+
+    
+
+    // 取得したDBのデータをJS用に変換するメソッド  -------------------------------------------------
+    private function convertStudySessionsToBooks(array $studySessions)
+    {
+        $BooksData = [];
+
+        foreach ($studySessions as $session) {
+            $minutes = $session['session_duration_minutes'];
+            $bookThickness = 1;
+
+            if ($minutes > 15 && $minutes <= 30) {
+                $bookThickness = 2;
+            } elseif ($minutes > 30 && $minutes <= 60) {
+                $bookThickness = 3;
+            } elseif ($minutes > 60) {
+                $bookThickness = 4;
+            }
+
+            $BooksData[] = [
+                'session_id' => $session['session_id'],
+                'cover_image' => $session['cover_image'],
+                'cover_color' => $session['cover_color'],
+                'cover_text_color' => $session['cover_text_color'],
+                'category_name' => $session['category_name'],
+                'book_thickness' => $bookThickness
+            ];
+        }
+
+        return $BooksData;
+    }
+
+
+
+
 }

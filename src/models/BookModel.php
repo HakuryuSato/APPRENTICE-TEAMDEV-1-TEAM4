@@ -16,7 +16,6 @@ class BookModel
         // データベース設定を含むファイルを読み込み
         $dbConfig = require __DIR__ . '/../../config/database.php';
 
-
         try {
             // データベース設定を使ってPDO接続を初期化
             $this->pdo = new PDO(
@@ -56,39 +55,38 @@ class BookModel
 
         // クエリの実行
         $result = $this->pdo->query($sql);
-        $studySessions = $result->fetchAll(PDO::FETCH_ASSOC);
 
-        // データをBooksDataとして変換して返す
-        return $this->convertStudySessionsToBooks($studySessions);
+        // 結果を返す
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 取得したDBのデータをJS用に変換するメソッド  -------------------------------------------------
-    private function convertStudySessionsToBooks(array $studySessions)
+    
+    // カテゴリーとカバーデータを取得する
+    public function getCategoryCoverData()
     {
-        $BooksData = [];
+        $sql = "
+        SELECT 
+            s.session_id,
+            s.session_duration_minutes,
+            c.category_name,
+            b.cover_image,
+            b.cover_color,
+            b.cover_text_color
+        FROM 
+            study_sessions s
+        JOIN 
+            categories c ON s.category_id = c.category_id
+        JOIN 
+            category_cover cc ON c.category_id = cc.category_id
+        JOIN 
+            book_covers b ON cc.cover_id = b.cover_id
+    ";
 
-        foreach ($studySessions as $session) {
-            $minutes = $session['session_duration_minutes'];
-            $bookThickness = 1;
+        // $result = $this->pdo->query($sql);
+        // $studySessions = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            if ($minutes > 15 && $minutes <= 30) {
-                $bookThickness = 2;
-            } elseif ($minutes > 30 && $minutes <= 60) {
-                $bookThickness = 3;
-            } elseif ($minutes > 60) {
-                $bookThickness = 4;
-            }
-
-            $BooksData[] = [
-                'session_id' => $session['session_id'],
-                'cover_image' => $session['cover_image'],
-                'cover_color' => $session['cover_color'],
-                'cover_text_color' => $session['cover_text_color'],
-                'category_name' => $session['category_name'],
-                'book_thickness' => $bookThickness
-            ];
-        }
-
-        return $BooksData;
+        // return $this->convertStudySessionsToBooks($studySessions);
     }
+
+    
 }
