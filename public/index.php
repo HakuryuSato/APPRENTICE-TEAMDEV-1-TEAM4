@@ -16,19 +16,19 @@
     <?php include '../src/views/shelf.php'; ?>
 
     <!-- フッター -->
-    <?php include '../src/views/footer.php'; ?>
+    <?php include '../src/views/form.php'; ?>
 
 
     <!-- モーダル系 -->
-        <!-- 偉人モーダル -->
-        <?php include '../src/views/ijin_modal.php'; ?>
+    <!-- 偉人モーダル -->
+    <?php include '../src/views/ijin_modal.php'; ?>
 
-        <!-- 勉強時間登録用モーダル -->
-        <?php include '../src/views/register_modal.php'; ?>
+    <!-- 勉強時間登録用モーダル -->
+    <?php include '../src/views/register_modal.php'; ?>
 
-        <!-- 勉強時間登録確認用モーダル -->
-        <?php include '../src/views/register_confirm_modal.php'; ?>
-        
+    <!-- 勉強時間登録確認用モーダル(一旦コメントアウト) -->
+    <!-- <?php include '../src/views/register_confirm_modal.php'; ?> -->
+
 
     <!-- JavaScript -->
     <script type="module" src="js/main.mjs"></script>
