@@ -19,3 +19,5 @@ $bookModel = new BookModel();
 $categories = $bookModel->getCategoriesFromDB();
 echo json_encode($categories);
 
+
+
