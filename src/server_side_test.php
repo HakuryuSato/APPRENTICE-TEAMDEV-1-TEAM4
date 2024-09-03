@@ -18,3 +18,4 @@ $bookModel = new BookModel();
 // カテゴリー取得のテスト
 $categories = $bookModel->getCategoriesFromDB();
 echo json_encode($categories);
+
