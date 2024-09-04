@@ -15,3 +15,33 @@
     <!-- 提出ボタン-->
     <button class="submit" type="submit">今日の学習を終了する</button>
 </form>
+
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0;
+    }
+
+    .timer-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 40px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .timer {
+        font-family: "Oxanium", "ヒラギノ角ゴシック", "メイリオ", sans-serif;
+        font-weight: 400;
+        font-size: 1.25em;
+    }
+
+    .recent {
+        margin: 0 1em;
+        text-align: center;
+    }
+</style>

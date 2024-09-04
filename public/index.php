@@ -26,10 +26,6 @@
     <!-- 勉強時間登録用モーダル -->
     <?php include '../src/views/register_modal.php'; ?>
 
-    <!-- 勉強時間登録確認用モーダル(一旦コメントアウト) -->
-    <!-- <?php include '../src/views/register_confirm_modal.php'; ?> -->
-
-
     <!-- JavaScript -->
     <script type="module" src="js/main.mjs"></script>
 

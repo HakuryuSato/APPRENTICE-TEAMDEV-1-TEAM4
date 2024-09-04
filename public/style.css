@@ -1,84 +1,34 @@
 /* フォント設定 */
 @font-face {
-  font-family: 'Sawarabi_Gothic';
+  font-family: "Sawarabi_Gothic";
   font-weight: 400;
-  src: url(./fonts/SawarabiGothic-Regular.ttf) format('truetype');
+  src: url(./fonts/SawarabiGothic-Regular.ttf) format("truetype");
 }
 @font-face {
-  font-family: 'Oxanium';
+  font-family: "Oxanium";
   font-weight: 400;
-  src: url(./fonts/Oxanium-Regular.ttf) format('truetype');
+  src: url(./fonts/Oxanium-Regular.ttf) format("truetype");
 }
 
 /* 本体部分 */
-html{
-  background-color: #F8F8F8;
+html {
+  background-color: #f8f8f8;
   font-size: 16px;
 }
 
 body {
   margin: 0 auto;
-  font-family: 'Sawarabi_Gothic', 'ヒラギノ角ゴシック', 'メイリオ', sans-serif;
+  font-family: "Sawarabi_Gothic", "ヒラギノ角ゴシック", "メイリオ", sans-serif;
   font-weight: 400;
   font-size: 2rem;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
-}
-
-input, button {
-  font-family: 'Sawarabi_Gothic', 'ヒラギノ角ゴシック', 'メイリオ', sans-serif;
+input,
+button {
+  font-family: "Sawarabi_Gothic", "ヒラギノ角ゴシック", "メイリオ", sans-serif;
   font-weight: 400;
   font-size: 2rem;
-}
-
-.header {
-  height: 120px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5rem;
-}
-
-.total{
-  padding: 0.5rem 2rem;
-}
-
-.shelf-container {
-  background-image: url(./images/background.png);
-  background-position: center;
-  background-size: cover;
-  max-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 5% 0;
-}
-
-.timer-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding:  40px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-.recent {
-  margin: 0 1em;
-  text-align: center;
-}
-
-.timer {
-  font-family: 'Oxanium', 'ヒラギノ角ゴシック', 'メイリオ', sans-serif;
-  font-weight: 400;
-  font-size: 1.25em;
+  padding: 0 0.5em;
 }
 
 .submit {
@@ -86,5 +36,5 @@ input, button {
 }
 
 .modal {
-    display: none; /* デフォルトで非表示にする */
+  display: none; /* デフォルトで非表示にする */
 }
