@@ -24,8 +24,8 @@ export class BookshelfRenderer {
 
         const shelfImage = new Image();
         shelfImage.src = "./images/book_shelf.png";
-        canvas.width = 968;
-        canvas.height = 1288;
+        canvas.width = 484;
+        canvas.height = 644;
 
         shelfImage.onload = () => {
             // 背景の本棚画像を描画

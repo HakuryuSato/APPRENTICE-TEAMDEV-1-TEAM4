@@ -4,7 +4,7 @@ export class Book {
     // fetch_booksで受け取ったbookデータをプロパティに設定
     constructor(
         sessionId, // 1
-        coverImage, // normal
+        coverImage, // 
         coverColor, // 'red'
         coverTextColor, // #000000
         categoryName, // 'PHP'

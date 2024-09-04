@@ -12,5 +12,10 @@
         flex-direction: row;
         justify-content: center;
         padding: 5% 0;
+
+        /* 表示サイズ */
+        width: 500px;
+        height: 500px;
+
     }
 </style>
