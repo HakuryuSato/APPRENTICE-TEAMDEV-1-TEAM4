@@ -1,16 +1,19 @@
 <!-- 佐藤：デバッグのためijin-modalのcss class 'modal'を外しています。 -->
 <div class=''>
     <div id="ijin-modal" class="ijin-modal" types="">
+        <div class="modal-bg"></div>
         <div class="ijin-modal-container">
             <div class="ijin-modal-content">
                 <div class="ijin-modal-ijin-image-and-name">
                     <img id='ijin-image' class="ijin-image" src='images/ijins/ijin1.png'>
                     <div style="text-align: center;">
-                        <span class="ijin-name">アーサー・ケプラー</span><br>
-                        <span class="ijin-name">(1875 - 1953)</span>
+                        <p class="ijin-name">アーサー・ケプラー</p>
+                        <p class="ijin-name">(1875 - 1953)</p>
                     </div>
                 </div>
-                <div id='ijin-text' class="ijin-text"></div>
+                <div class="ijin-text">
+                    <div id='ijin-text'></div>
+                </div>
             </div>
             <button id='ijin-modal-close'>ありがとう</button>
         </div>
@@ -20,30 +23,23 @@
 <!-- 後々style.cssへ移動？ -->
 <style>
     .ijin-modal {
-        /* デバッグ用display:block */
-        display: block;
-
-        /* 角を丸める */
-        border-radius: 30px;
-
         /* フェードイン */
         animation: fadeIn 1s ease-in-out;
+        width: 100%;
+        height: 100%;
+        font-family: "ShipporiMinchoB1", "ヒラギノ", serif;
+    }
 
-        /* 画面中央 */
+    .modal-bg {
+        /* 位置を固定 */
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        /* 最前面 */
-        z-index: 100;
-
-        /* モーダルのサイズ */
-        width: 50%;
-        height: 50%;
-
-        /* 背景を半透明 */
-        background-color: white;
+        top: 0;
+        left: 0;
+        /* 画面いっぱいに広がるようにする */
+        width: 100%;
+        height: 100%;
+        /* 黒い背景色(今回は黒で60%の不透明度) */
+        background: rgba(0, 0, 0, 0.6);
     }
 
     @keyframes fadeIn {
@@ -56,53 +52,94 @@
         }
     }
 
-
-
+    /* モーダル */
     .ijin-modal-container {
+        width: max(60vw, 500px);
+        height: max(50vh, 350px);
+        background-color: #C7B299;
         display: flex;
         flex-direction: column;
         /* 縦並び */
         align-items: center;
         /* 中央揃え */
         justify-content: center;
-        /* 中央揃え */
-        height: 100%;
+        /* 画面中央 */
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        /* 最前面 */
+        z-index: 100;
+        padding: 2rem 1rem;
     }
 
+    /* ボタン以外 */
     .ijin-modal-content {
         display: flex;
-        /* 横並び */
+        justify-content: space-between;
         align-items: center;
-        /* 縦方向の中央揃え */
-        margin-bottom: 20px;
-        /* ボタンとの余白 */
+        height: 70%;
     }
 
+    /* 画像 */
     .ijin-image {
-        max-width: 200px;
-        /* 画像の最大幅を制限 */
-        margin-right: 20px;
-        /* テキストとの間の余白 */
+        width: 80%;
+        margin-bottom: 0.5rem;
     }
 
+    /* 名言 */
     .ijin-text {
-        /* テキストがスペースを埋めるようにする */
-        flex-grow: 1;
-        color: black;
+        width: 65%;
     }
 
+    /* 名前 */
     .ijin-name {
-        color: gray;
+        font-size: 1rem;
     }
 
-
-
-
-
+    /* 左側 */
     .ijin-modal-ijin-image-and-name {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        margin-right: 20px;
+        width: 30%;
+    }
+
+    /* ボタン */
+    .ijin-modal button {
+        margin-top: 2rem;
+        background-color: #59BA78;
+    }
+
+    /* 600pxでブレイクポイントを設定（スマホ <-> タブレット、PC想定） */
+    @media screen and (max-width: 600px) {
+
+        .ijin-modal-container {
+            /* モーダルのサイズ */
+            width: 90%;
+            height: 50%;
+            min-height: 400px;
+            padding: 1rem 0.5rem;
+        }
+
+        .ijin-modal-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70%;
+        }
+
+        .ijin-text {
+            width: 90%;
+        }
+
+        .ijin-image {
+            width: 40%;
+        }
+
+        .ijin-modal-ijin-image-and-name {
+            width: 90%;
+        }
     }
 </style>
