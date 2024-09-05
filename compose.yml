@@ -12,6 +12,7 @@ services:
     networks:
       - app-network
     command : "apache2-foreground" # apache2を実行
+    env_file: ".env"
 
   mysql:
     image: mysql:8.0
