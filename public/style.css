@@ -9,6 +9,11 @@
   font-weight: 400;
   src: url(./fonts/Oxanium-Regular.ttf) format("truetype");
 }
+@font-face {
+  font-family: "ShipporiMinchoB1";
+  font-weight: 400;
+  src: url(./fonts/ShipporiMinchoB1-Regular.ttf) format("truetype");
+}
 
 /* 本体部分 */
 html {
