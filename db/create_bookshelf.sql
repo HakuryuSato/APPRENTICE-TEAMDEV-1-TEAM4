@@ -104,7 +104,13 @@ INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) V
 (2, 'm', 'yellow', '#000000'), 
 (3, 'l', 'white', '#000000'), 
 (4, 's', 'red', '#000000'), 
-(5, 'm', 'purple', '#000000');
+(5, 'm', 'purple', '#000000'), 
+(6, 'l', 'green', '#000000'), 
+(7, 's', 'orange', '#000000'), 
+(8, 'm', 'black', '#000000'), 
+(9, 'l', 'pink', '#000000'), 
+(10, 's', 'gray', '#000000');
+
 
 
 -- テストデータ 勉強セッション
