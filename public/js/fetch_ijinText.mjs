@@ -10,7 +10,7 @@ export async function fetchIjinText() {
         // console.log(response.json().message)
 
         const data = await response.json(); // JSONとしてパース
-        // console.log(data)
+        // console.log(data);
         return data;
     } catch (error) {
         console.error("Fetch error:", error);
