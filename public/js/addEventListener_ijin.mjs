@@ -19,7 +19,7 @@ export function addEventListener_ijin() {
                 ? data.message
                 : "明日も前へ進み続けよう。困難を乗り越えるその姿勢が、偉大な歴史を紡いでいく力となる。";
             
-            console.log(text)
+            // console.log(text);
             displayTextOneByOne(ijinTextBox, text);
         });
 
