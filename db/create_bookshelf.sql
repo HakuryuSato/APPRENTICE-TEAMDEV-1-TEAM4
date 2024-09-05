@@ -100,11 +100,11 @@ INSERT INTO category_cover (category_id, cover_id) VALUES
 (5, 5);
 
 INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) VALUES
-(1, 'normal', 'red', '#000000'), 
-(2, 'normal', 'red', '#000000'), 
-(3, 'normal', 'red', '#000000'), 
-(4, 'normal', 'red', '#000000'), 
-(5, 'normal', 'red', '#000000');
+(1, 's', 'blue', '#000000'), 
+(2, 'm', 'yellow', '#000000'), 
+(3, 'l', 'white', '#000000'), 
+(4, 's', 'red', '#000000'), 
+(5, 'm', 'purple', '#000000');
 
 
 -- テストデータ 勉強セッション

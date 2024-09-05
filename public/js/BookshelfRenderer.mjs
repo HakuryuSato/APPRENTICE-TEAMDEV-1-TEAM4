@@ -24,8 +24,8 @@ export class BookshelfRenderer {
 
         const shelfImage = new Image();
         shelfImage.src = "./images/book_shelf.png";
-        canvas.width = 968;
-        canvas.height = 1288;
+        canvas.width = 484;
+        canvas.height = 644;
 
         shelfImage.onload = () => {
             // 背景の本棚画像を描画
@@ -34,13 +34,12 @@ export class BookshelfRenderer {
             this.shelves.forEach((shelf, index) => {
                 let shelfY;
                 if (index === 0) {
-                    shelfY = 20; // 0番目は20
+                    shelfY = 3; // 0番目
                 } else {
-                    shelfY = 275 + (index - 1) * 250; // 1番目以降は275, 525, 775, 1025...
+                    shelfY = 126 + (index - 1) * 127; // 1番目以降は275, 525, 775, 1025...
                 }
                 shelf.drawBooks(ctx, shelfY);
             });
-
         };
     }
 }

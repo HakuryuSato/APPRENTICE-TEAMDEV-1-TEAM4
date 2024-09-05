@@ -1,7 +1,6 @@
 <div class="shelf-container">
-    <canvas id="bookshelfCanvas"></canvas>
+    <canvas id="bookshelf-canvas" class="bookshelf-canvas"></canvas>
 </div>
-
 <style>
     .shelf-container {
         background-image: url(./images/background.png);
@@ -12,5 +11,6 @@
         flex-direction: row;
         justify-content: center;
         padding: 5% 0;
+
     }
 </style>
