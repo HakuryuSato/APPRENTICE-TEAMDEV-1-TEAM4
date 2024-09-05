@@ -9,8 +9,6 @@ import { Book } from "./Book.mjs";
 import { fetchBooks } from "./fetch_books.mjs";
 
 export async function renderShelf() {
-
-
     // DBから本のデータ取得
     const inputData = await fetchBooks();
     /* inputData例
@@ -86,7 +84,7 @@ export async function renderShelf() {
 
             // 棚にも本棚にも追加できない場合、本棚を描画
         } else {
-            currentBookShelf.render("bookshelfCanvas");
+            currentBookShelf.render("bookshelf-canvas");
             break;
         }
     }

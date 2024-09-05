@@ -34,13 +34,12 @@ export class BookshelfRenderer {
             this.shelves.forEach((shelf, index) => {
                 let shelfY;
                 if (index === 0) {
-                    shelfY = 20; // 0番目は20
+                    shelfY = 3; // 0番目
                 } else {
-                    shelfY = 275 + (index - 1) * 250; // 1番目以降は275, 525, 775, 1025...
+                    shelfY = 126 + (index - 1) * 127; // 1番目以降は275, 525, 775, 1025...
                 }
                 shelf.drawBooks(ctx, shelfY);
             });
-
         };
     }
 }
