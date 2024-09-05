@@ -23,7 +23,7 @@ export function addEventListener_ijin() {
             displayTextOneByOne(ijinTextBox, text);
         });
 
-        function displayTextOneByOne(element, text, speed = 100) {
+        function displayTextOneByOne(element, text, speed = 50) {
             let index = 0;
             element.textContent = ""; // 初期化
 
