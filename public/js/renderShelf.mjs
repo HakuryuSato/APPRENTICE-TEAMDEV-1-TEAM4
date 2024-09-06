@@ -11,34 +11,17 @@ import { fetchBooks } from "./fetch_books.mjs";
 export async function renderShelf() {
     // DBから本のデータ取得
     const inputData = await fetchBooks();
-    /* inputData例
-[
-    {
-        "session_id": 1,
-        "cover_image": "normal",
-        "cover_color": "red",
-        "cover_text_color": "#000000",
-        "category_name": "PHP",
-        "book_thickness": 0
-    },
-    {
-        "session_id": 2,
-        "cover_image": "normal",
-        "cover_color": "red",
-        "cover_text_color": "#FFFFFF",
-        "category_name": "JavaScript",
-        "book_thickness": 0
-    },
-    */
+    console.log(inputData);
+
 
     /*
-名称の定義
-棚：横に伸びる1段の棚
-本棚：5段の棚を持つ、1列の本棚
+        名称の定義
+        棚：横に伸びる1段の棚
+        本棚：5段の棚を持つ、1列の本棚
 
 
-メモ：複数ページに分ける場合、ここで取得するDBデータの範囲をsession_idで分け、
-表示するページごとに次のsessin_idから取得し再描画する。
+        メモ：複数ページに分ける場合、ここで取得するDBデータの範囲をsession_idで分け、
+        表示するページごとに次のsessin_idから取得し再描画する。
     */
 
     // 棚5段分を格納する本棚オブジェクト
@@ -54,11 +37,11 @@ export async function renderShelf() {
         /*  book引数の例
         {
         sessionId: 2,
-        coverImage: 'normal',
+        coverImage: 's',
         coverColor: "red",
         coverTextColor: "#FFFFFF",
         categoryName: "JavaScript",
-        bookThickness: 0,
+        bookThickness: 1,
         }
     */
 
@@ -82,10 +65,15 @@ export async function renderShelf() {
             currentShelf = new Shelf();
             currentShelf.addBook(book);
 
-            // 棚にも本棚にも追加できない場合、本棚を描画
-        } else {
-            currentBookShelf.render("bookshelf-canvas");
-            break;
+            // 棚にも本棚にも追加できない場合、本棚を描画(予定でしたが、時間がないので、棚を一つ描画にとどめます。)
         }
+        // else {
+        //     currentBookShelf.addShelf(currentShelf);
+        //     currentBookShelf = new BookshelfRenderer();
+        //     currentShelf = new Shelf();
+        //     currentShelf.addBook(book);
+        // }
+
+        currentBookShelf.render("bookshelf-canvas");
     }
 }
