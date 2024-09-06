@@ -1,4 +1,5 @@
 import { convertTimeToSeconds, formatTime } from "./timerUtils.mjs";
+import { saveDataStudyHistory } from "./storageUtils.mjs";
 
 export function confirmSubmit(e)
 {
@@ -44,10 +45,20 @@ function createDeleteButtonTd()
 
   btnDelete.className = 'recent';
   btnDelete.id = 'btn_delete';
-  btnDelete.classList.add('btn_delete');
   btnDelete.name = 'btn_delete';
   btnDelete.type = 'button';
   btnDelete.textContent = '削除';
+  btnDelete.addEventListener('click', (e) => deleteList(e));
   td.appendChild(btnDelete);
   return td;
+}
+
+function deleteList(e)
+{
+  e.preventDefault();
+  const btnDelete = e.target;
+  const td = btnDelete.parentElement;
+  const tr = td.parentElement;
+  tr.remove();
+  saveDataStudyHistory();
 }

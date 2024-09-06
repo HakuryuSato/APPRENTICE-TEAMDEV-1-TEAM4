@@ -1,6 +1,6 @@
 import { formatTime } from "./timerUtils.mjs";
 import { saveToLocalStorage, getDataFromLocalStorage, saveDataStudyHistory } from "./storageUtils.mjs";
-import { addTd } from "./DomUtils.mjs";
+import { addTd } from "./domUtils.mjs";
 
 export class Timer {
   constructor() {
@@ -33,6 +33,7 @@ export class Timer {
         this.currentSeconds++;
         this.displayTimer.innerText = formatTime(this.currentSeconds);
         saveToLocalStorage('currentTimeElapsed', this.currentSeconds);
+        this.saveSelected();
       }, 1000);
       this.addInStudy(categoryInStudy);
     }
@@ -56,10 +57,6 @@ export class Timer {
     this.displayTimer.innerText = '00:00:00';
     const inStudyCategory = document.querySelector('#in_study_category');
     inStudyCategory.innerText = "";
-    const deleteButtons = document.querySelectorAll('.btn_delete');
-    deleteButtons.forEach(deleteButton => {
-    deleteButton.addEventListener('click', (e) => this.deleteList(e));
-    });
   }
 
   /* 学習中カテゴリー表示*/
@@ -71,16 +68,6 @@ export class Timer {
       category_name: categoryName,
     }
     saveToLocalStorage('categoryInStudy', categoryInStudy);
-  }
-
-  deleteList(e)
-  {
-    e.preventDefault();
-    const btnDelete = e.target;
-    const td = btnDelete.parentElement;
-    const tr = td.parentElement;
-    tr.remove();
-    saveDataStudyHistory();
   }
 
   /* 履歴に追加 */
