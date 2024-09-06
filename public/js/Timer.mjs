@@ -1,6 +1,6 @@
 import { formatTime } from "./timerUtils.mjs";
 import { saveToLocalStorage, getDataFromLocalStorage, saveDataStudyHistory } from "./storageUtils.mjs";
-import { addTd } from "./DomUtils.mjs";
+import { addTd } from "./domUtils.mjs";
 
 export class Timer {
   constructor() {
