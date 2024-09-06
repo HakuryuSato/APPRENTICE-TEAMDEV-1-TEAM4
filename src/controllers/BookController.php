@@ -57,60 +57,13 @@ class BookController
         // カバー作成
         $this->createCovers($studyData);
 
+
+        $sessionsBefore = $this->bookModel->getBookDataFromDB();
         // 学習セッション保存
         $this->saveStudySessions($studyData);
 
-        // // カテゴリー作成
-        // // DBからカテゴリー名を取得
-        // $categories = $this->bookModel->getCategoriesFromDB();
+        $sessionsAfter = $this->bookModel->getBookDataFromDB();
 
-        // // カテゴリーがDBに存在しないものを抽出
-        // $newCategories = array_diff(array_column($studyData, 'category_name'), array_column($categories, 'category_name'));
-
-        // // カテゴリーが存在しないなら新たに保存し
-        // if (!empty($newCategories)) {
-        //     $this->bookModel->sendCategories($newCategories);
-        // }
-
-
-        // // カバー作成
-        // // $studyDataの各カテゴリーのidを取得 
-        // $categoryIds = $this->bookModel->getCategoriesIdFromDB(array_column($studyData, 'category_name'));
-
-        // // category_coverのid一覧を取得
-        // $categoryCoverIds = $this->bookModel->getCategoryCoverIdsFromDB();
-
-        // // $studyDataから、$categoryCoverIdsにcategory_idが存在しないものを抽出
-        // $newCategoryCovers = array_diff(array_keys($categoryIds), array_column($categoryCoverIds, 'category_id'));
-
-        // // category_coverに、$studyDataのカテゴリー名のカテゴリーidが存在しない場合
-        // if (!empty($newCategoryCovers)) {
-        //     // まだ$categoryCoverIdsに存在しないcover_idを抽出して
-        //     $availableCoverIds = $this->bookModel->getAvailableCoverIds();
-        //     $coverData = [];
-
-
-        //     // 最も数字が小さいcover_idとcategory_idを送信
-        //     foreach ($newCategoryCovers as $categoryId) {
-        //         $coverId = array_shift($availableCoverIds);  // 最も小さいcover_idを取得
-        //         $coverData[] = ['category_id' => $categoryId, 'cover_id' => $coverId];
-        //     }
-        //     $this->bookModel->sendCategoryCover($coverData);
-        // }
-
-
-
-        // // 学習セッション保存
-        // // $studyDataをもとに、カテゴリidと経過時間(分)の配列を作り、送信
-        // $studySessionsData = [];
-        // foreach ($studyData as $study) {
-        //     $studySessionsData[] = [
-        //         'category_id' => $categoryIds[$study['category_name']],
-        //         'session_duration_minutes' => $study['session_duration_minutes'],
-        //     ];
-        // }
-
-        // $this->bookModel->sendStudySessions($studySessionsData);
     }
 
 
@@ -161,29 +114,37 @@ class BookController
     private function createCovers($studyData)
     {
         $categoryNames = array_column($studyData, 'category_name');
-        $categoryIds = $this->bookModel->getCategoriesIdFromDB($categoryNames);
+        $categoryIds = $this->bookModel->getCategoriesIdFromDB($categoryNames); # ['PHP'=>1, 'Laravel'=>2]
 
         $categoryCoverIds = $this->bookModel->getCategoryCoverIdsFromDB();
-        $newCategoryCovers = array_diff(array_keys($categoryIds), array_column($categoryCoverIds, 'category_id'));
+        $newCategoryCovers = array_diff(array_values($categoryIds), array_column($categoryCoverIds, 'category_id'));
 
-        if (!empty($newCategoryCovers)) {
+        // カバーのないカテゴリが存在するなら
+        if (!empty($newCategoryCovers)) { 
+            // 使用可能なカバーIdを調べ
             $availableCoverIds = $this->bookModel->getAvailableCoverIds();
             $coverData = [];
 
+            // カバーのないカテゴリIdでループ
             foreach ($newCategoryCovers as $categoryId) {
                 $coverId = array_shift($availableCoverIds);
                 $coverData[] = ['category_id' => $categoryId, 'cover_id' => $coverId];
             }
+            // カバーデータ送信
             $this->bookModel->sendCategoryCover($coverData);
+
+            // 注意：現状、予め作成したカバー種類を超えるカテゴリを登録すると動作しない。
         }
     }
 
     // 勉強セッションを保存するメソッド
     private function saveStudySessions($studyData)
     {
+        // 今回の勉強セッションのカテゴリ名から、カテゴリIDを取得
         $categoryNames = array_column($studyData, 'category_name');
         $categoryIds = $this->bookModel->getCategoriesIdFromDB($categoryNames);
 
+        // DB送信用データ整形
         $studySessionsData = [];
         foreach ($studyData as $study) {
             // if (!isset($categoryIds[$study['category_name']])) {
