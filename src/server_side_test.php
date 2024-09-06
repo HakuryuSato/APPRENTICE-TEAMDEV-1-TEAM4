@@ -13,9 +13,9 @@ $bookModel = new BookModel();
 
 
 // 本棚データ取得のテスト
-$bookData = $bookModel->getBookDataFromDB();
-echo json_encode($bookData);
-return json_encode($bookData);
+// $bookData = $bookModel->getBookDataFromDB();
+// echo json_encode($bookData);
+// return json_encode($bookData);
 
 // カテゴリー取得のテスト
 // $categories = $bookModel->getCategoriesFromDB();
@@ -24,7 +24,7 @@ return json_encode($bookData);
 
 
 // GPT取得のテスト
-$gptController = new GPTController();
-$ijinText = $gptController->getMessageFromGpt();
+// $gptController = new GPTController();
+// $ijinText = $gptController->getMessageFromGpt();
 
-echo $ijinText;
+// echo $ijinText;
