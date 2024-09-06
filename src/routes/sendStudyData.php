@@ -5,7 +5,7 @@ require_once __DIR__ . '/../controllers/BookController.php';
 use Controllers\BookController;
 
 try {
-    // 本番用 結合試験時にこちらを使用します
+    // 本番用
     $postData = file_get_contents('php://input');
     $studyData = json_decode($postData, true);
 

@@ -3,15 +3,21 @@ import { postStudyData } from "./post_study_data.mjs";
 export async function sendLocalStorageData() {
     // ローカルストレージからデータを取得
     const timerList = localStorage.getItem("timerList");
-    console.log(timerList);
 
-    if (!timerList) {
+    if (!timerList) { // ローカルストレージにデータがなければ終了
         console.log("No data to send.");
         return;
     }
 
     // JSON文字列をパース
-    const studyData = JSON.parse(timerList);
+    let studyData = JSON.parse(timerList);
+
+    // 秒を分に変換
+    studyData.forEach((item) => {
+        if (item.session_duration_minutes !== undefined) {
+            item.session_duration_minutes /= 60;
+        }
+    });
 
     try {
         // データ送信
