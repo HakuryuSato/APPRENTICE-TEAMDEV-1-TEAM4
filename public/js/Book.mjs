@@ -4,7 +4,7 @@ export class Book {
     // fetch_booksで受け取ったbookデータをプロパティに設定
     constructor(
         sessionId, // 1
-        coverImage, // normal
+        coverImage, //
         coverColor, // 'red'
         coverTextColor, // #000000
         categoryName, // 'PHP'
@@ -20,25 +20,34 @@ export class Book {
 
     draw(ctx, x, y) {
         const bookImage = new Image();
-        const bookHeight = 237;
+        const bookHeight = 128;
 
         // 厚み、色に応じて画像選択
-        bookImage.src = `./images/${this.coverImage}_${this.coverColor}_${this.bookThickness}.png`;
+        bookImage.src =
+            `./images/books/${this.coverImage}_${this.coverColor}_${this.bookThickness}.png`;
 
         bookImage.onload = () => { // ブラウザにオブジェクトを読み込んだ時に発火
-
             // 本の画像を描画 引数(画像, 描画するx座標, 描画y座標, 横幅, 高さ)
-            ctx.drawImage(bookImage, x, y, this.bookThickness * 20, bookHeight);
+            ctx.drawImage(bookImage, x, y, this.bookThickness * 10, bookHeight);
 
             // テキストを縦書きで描画 *本の厚みで余裕あれば描画？
             ctx.fillStyle = this.coverTextColor;
 
             // フォントと配置位置
-            ctx.font = "18px sans-serif";
+            ctx.font = "8px sans-serif";
             ctx.textBaseline = "top";
 
             // テキストの描画開始位置を計算
-            const textX = x + (this.bookThickness * 20) / 2; // 本の厚みの中心
+            // X
+            const textX = x + (this.bookThickness * 10) / 2; 
+
+            // Y
+            const textY = y +
+                (this.coverImage === "s"
+                    ? 45
+                    : this.coverImage === "m"
+                    ? 30
+                    : 10);
 
             // テキストを描画
             for (let i = 0; i < this.categoryName.length; i++) {
@@ -46,11 +55,9 @@ export class Book {
                 ctx.fillText(
                     this.categoryName[i],
                     textX - textWidth / 2,
-                    y + 5 + i * 20,
-                ); 
+                    textY + i * 7,
+                );
             }
-
-
         };
     }
 }

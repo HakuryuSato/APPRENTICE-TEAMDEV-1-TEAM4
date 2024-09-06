@@ -10,22 +10,22 @@ export class Shelf {
     }
 
     // 本を追加可能か返す
-    canAddBook(book){
+    canAddBook(book) {
         // 棚1段の幅を超えないなら本追加 47=(940px/20)
-        return this.booksWidth + book.bookThickness < 47
+        return this.booksWidth + book.bookThickness < 47;
     }
 
     // 本を追加する
     addBook(book) {
         this.books.push(book);
-        this.booksWidth += book.bookThickness
+        this.booksWidth += book.bookThickness;
     }
 
     drawBooks(ctx, shelfYPosition) {
-        let currentX = 20; // 本描画スタート位置(左からXpx)
+        let currentX = 12; // 本描画スタート位置(左からXpx)
         for (const book of this.books) {
             book.draw(ctx, currentX, shelfYPosition);
-            currentX += book.bookThickness * 20 ; // 本の厚み分右へずらす (1 -> 20px, 2 -> 40px)
+            currentX += book.bookThickness * 10; // 本の厚み分右へずらす (1 -> 20px, 2 -> 40px)
         }
     }
 }
