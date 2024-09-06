@@ -5,15 +5,15 @@
 
 <style>
     .header {
-        height: 120px;
+        height: max(4rem, 10vh);
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     .total {
-        padding: 0.5rem 2rem;
+        padding: 0 1.5rem;
     }
 </style>
