@@ -1,5 +1,5 @@
 <!-- 佐藤：デバッグのためijin-modalのcss class 'modal'を外しています。 -->
-<div class=''>
+<div class='modal'>
     <div id="ijin-modal" class="ijin-modal" types="">
         <div class="modal-bg"></div>
         <div class="ijin-modal-container">
