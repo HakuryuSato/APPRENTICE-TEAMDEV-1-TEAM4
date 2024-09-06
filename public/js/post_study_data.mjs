@@ -1,17 +1,17 @@
-export async function postStudyData() { // ここへstudyDataを追加
+export async function postStudyData(studyData) {
     try {
         
         // テスト用の学習データ
-        const studyData = [
-            {
-                category_name: "PHP",
-                session_duration_minutes: 30,
-            },
-            {
-                category_name: "Laravel",
-                session_duration_minutes: 138,
-            },
-        ];
+        // const studyData = [
+        //     {
+        //         category_name: "PHP",
+        //         session_duration_minutes: 30,
+        //     },
+        //     {
+        //         category_name: "Laravel",
+        //         session_duration_minutes: 138,
+        //     },
+        // ];
 
         const response = await fetch(
             "http://localhost:80/src/routes/sendStudyData.php",

@@ -5,24 +5,21 @@ require_once __DIR__ . '/../controllers/BookController.php';
 use Controllers\BookController;
 
 try {
-    // 本番用 結合試験時にこちらを使用します
-    // $postData = file_get_contents('php://input');
-    // $studyData = json_decode($postData, true);
-
+    // 本番用
+    $postData = file_get_contents('php://input');
+    $studyData = json_decode($postData, true);
 
     // テスト用
-    $studyData = [
-        [
-            'category_name' => 'aaaa',
-            'session_duration_minutes' => 30,
-        ],
-        [
-            'category_name' => 'Laravel',
-            'session_duration_minutes' => 138,
-        ],
-    ];
-
-
+    // $studyData = [
+    //     [
+    //         'category_name' => 'aaaa',
+    //         'session_duration_minutes' => 30,
+    //     ],
+    //     [
+    //         'category_name' => 'Laravel',
+    //         'session_duration_minutes' => 138,
+    //     ],
+    // ];
 
     // BookControllerのインスタンスを作成し、メソッドを呼び出す
     $controller = new BookController();
