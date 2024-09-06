@@ -29,11 +29,6 @@ $categories = $bookModel->getCategoriesFromDB();
         </p>
         <table id="learning_history_list" class="learning_history_list">
             <tbody>
-                <!-- <tr> -->
-                    <!-- <td id="history_category"></td>
-                    <td id="sum_time"></td>
-                    <td id="btn_delete"><button class="recent" id="btn_stop" name="btn_stop" type="button">削除</button></td> -->
-                <!-- </tr> -->
             </tbody>
         </table>
     <!-- 提出ボタン-->
