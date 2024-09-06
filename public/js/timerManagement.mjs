@@ -11,7 +11,6 @@ export function timerManagement() {
   const startButton = document.querySelector('#btn_start');
   const stopButton = document.querySelector('#btn_stop');
   const completeButton = document.querySelector('#btn_complete');
-  const deleteButton = document.querySelector('#btn_delete');
 
   startButton.addEventListener('click', () => timer.timerStart());
   stopButton.addEventListener('click', () => timer.timerStop());
