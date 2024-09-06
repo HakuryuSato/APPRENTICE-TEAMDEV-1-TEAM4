@@ -13,7 +13,6 @@ export async function renderShelf() {
     const inputData = await fetchBooks();
     console.log(inputData);
 
-
     /*
         名称の定義
         棚：横に伸びる1段の棚
@@ -25,7 +24,7 @@ export async function renderShelf() {
     */
 
     // 棚5段分を格納する本棚オブジェクト
-    const currentBookShelf = new BookshelfRenderer();
+    let currentBookShelf = new BookshelfRenderer();
 
     // 棚1段目を作成
     let currentShelf = new Shelf();
@@ -61,19 +60,19 @@ export async function renderShelf() {
 
             // 棚には本を追加できないが、本棚に棚を追加できるなら
         } else if (currentBookShelf.canAddShelf()) {
-            currentBookShelf.addShelf(currentShelf);
             currentShelf = new Shelf();
+            currentBookShelf.addShelf(currentShelf);
             currentShelf.addBook(book);
 
-            // 棚にも本棚にも追加できない場合、本棚を描画(予定でしたが、時間がないので、棚を一つ描画にとどめます。)
+            
         }
+        // 棚にも本棚にも追加できない場合、本棚を新たに描画(予定でしたが、時間がないので、棚を一つ描画にとどめます。)
         // else {
         //     currentBookShelf.addShelf(currentShelf);
         //     currentBookShelf = new BookshelfRenderer();
         //     currentShelf = new Shelf();
         //     currentShelf.addBook(book);
         // }
-
-        currentBookShelf.render("bookshelf-canvas");
     }
+    currentBookShelf.render("bookshelf-canvas");
 }
