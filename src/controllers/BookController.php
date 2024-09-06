@@ -57,13 +57,8 @@ class BookController
         // カバー作成
         $this->createCovers($studyData);
 
-
-        $sessionsBefore = $this->bookModel->getBookDataFromDB();
         // 学習セッション保存
         $this->saveStudySessions($studyData);
-
-        $sessionsAfter = $this->bookModel->getBookDataFromDB();
-
     }
 
 
@@ -120,7 +115,7 @@ class BookController
         $newCategoryCovers = array_diff(array_values($categoryIds), array_column($categoryCoverIds, 'category_id'));
 
         // カバーのないカテゴリが存在するなら
-        if (!empty($newCategoryCovers)) { 
+        if (!empty($newCategoryCovers)) {
             // 使用可能なカバーIdを調べ
             $availableCoverIds = $this->bookModel->getAvailableCoverIds();
             $coverData = [];
@@ -147,9 +142,6 @@ class BookController
         // DB送信用データ整形
         $studySessionsData = [];
         foreach ($studyData as $study) {
-            // if (!isset($categoryIds[$study['category_name']])) {
-            //     throw new Exception("Category ID not found for category name: " . $study['category_name']);
-            // }
 
             $studySessionsData[] = [
                 'category_id' => $categoryIds[$study['category_name']],

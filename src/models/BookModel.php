@@ -187,7 +187,7 @@ class BookModel
         $stmt->execute($params);
     }
 
-    
+    // カテゴリーを送信
     public function sendCategories($categories)
     {
         $values = [];
