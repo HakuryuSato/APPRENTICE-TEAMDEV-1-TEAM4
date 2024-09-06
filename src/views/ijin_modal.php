@@ -1,6 +1,5 @@
-<!-- 佐藤：デバッグのためijin-modalのcss class 'modal'を外しています。 -->
-<div class=''>
-    <div id="ijin-modal" class="ijin-modal" types="">
+<div class='modal' id="ijin-modal">
+    <div  class="ijin-modal" types="">
         <div class="modal-bg"></div>
         <div class="ijin-modal-container">
             <div class="ijin-modal-content">
@@ -68,7 +67,7 @@
         inset: 0;
         margin: auto;
         /* 最前面 */
-        z-index: 100;
+        z-index: 1000;
         padding: 2rem 1rem;
     }
 

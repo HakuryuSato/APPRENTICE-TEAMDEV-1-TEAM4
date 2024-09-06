@@ -35,7 +35,7 @@ export function addEventListener() {
 
         // クリックイベントリスナー群  -------------------------------------------------
         // 偉人モーダルを表示する
-        addClickListener(registerConfirmButton, () => ijinModal.open());
+        addClickListener(endTodaysStudyButton, () => ijinModal.open());
 
         // 偉人モーダルを閉じる
         addClickListener(ijinModalCloseButton, () => ijinModal.close());
