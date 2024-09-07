@@ -12,8 +12,8 @@ function createRow(finishCategory)
     const newRow = document.createElement('tr');
 
     // カテゴリ、時間のtd要素を追加
-    newRow.appendChild(createTd('history_category', 'history_category', finishCategory.category_name));
-    newRow.appendChild(createTd('timer', 'sum_time', formatTime(finishCategory.session_duration_minutes)));
+    newRow.appendChild(createTd('history_category', 'modal_history_category', finishCategory.category_name));
+    newRow.appendChild(createTd('timer', 'modal_sum_time', formatTime(finishCategory.session_duration_minutes)));
 
     return newRow;
 };
@@ -26,3 +26,8 @@ function createTd(className, id, textContent)
     td.innerText = textContent;
     return td;
 };
+
+export function clearModalTable(){
+  const tbody = document.querySelector('tbody#total_history')
+  tbody.innerHTML = "";
+}

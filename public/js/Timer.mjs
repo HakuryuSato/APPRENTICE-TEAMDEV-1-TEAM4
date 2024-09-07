@@ -1,7 +1,7 @@
 import { formatTime } from "./timerUtils.mjs";
 import { saveToLocalStorage, getDataFromLocalStorage, saveDataStudyHistory } from "./storageUtils.mjs";
 import { addTd } from "./domUtils.mjs";
-import { addTodayRecord } from "./displayStudyHistoryAtModal.mjs";
+import { addTodayRecord, clearModalTable } from "./displayStudyHistoryAtModal.mjs";
 
 export class Timer {
   constructor() {
@@ -88,6 +88,7 @@ export class Timer {
   }
   // モーダルに累計を表示
   displayStudyHistoryAtModal(){
+    clearModalTable();
     if(this.studyHistoryList){
       this.studyHistoryList.forEach(session => {
         addTodayRecord(session);

@@ -19,6 +19,7 @@ export function addEventListener() {
             "register-confirm-button",
         );
 
+        //累計画面閉じるボタン
         const registerConfirmCloseButton = document.getElementById(
             "register-confirm-close",
         );
@@ -31,7 +32,9 @@ export function addEventListener() {
 
         // クリックイベントリスナー群  -------------------------------------------------
         // register_modal.phpを表示する
-        addClickListener(endTodaysStudyButton, () => registerModal.open());
+        addClickListener(endTodaysStudyButton, () => {
+            registerModal.open();}
+        );
 
         // register_modal.phpを閉じる
         addClickListener(registerConfirmButton, () => {
