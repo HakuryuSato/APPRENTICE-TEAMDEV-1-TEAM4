@@ -89,6 +89,7 @@ export class Timer {
   // モーダルに累計を表示
   displayStudyHistoryAtModal(){
     clearModalTable();
+    this.studyHistoryList = getDataFromLocalStorage("studyHistoryList");
     if(this.studyHistoryList){
       this.studyHistoryList.forEach(session => {
         addTodayRecord(session);

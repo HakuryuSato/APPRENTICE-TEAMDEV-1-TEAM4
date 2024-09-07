@@ -56,7 +56,6 @@ function createDeleteButtonTd()
 
 function deleteList(e)
 {
-  e.preventDefault();
   const btnDelete = e.target;
   const td = btnDelete.parentElement;
   const tr = td.parentElement;

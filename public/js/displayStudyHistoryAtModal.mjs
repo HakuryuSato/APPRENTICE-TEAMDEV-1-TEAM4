@@ -28,6 +28,6 @@ function createTd(className, id, textContent)
 };
 
 export function clearModalTable(){
-  const tbody = document.querySelector('tbody#total_history')
-  tbody.innerHTML = "";
+  const tbody = document.querySelector('tbody#total_history');
+  tbody.innerHTML = '';
 }
