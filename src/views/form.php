@@ -139,7 +139,7 @@ $categories = $bookModel->getCategoriesFromDB();
         left: 50%;
         width: 3px;
         height: 1rem;
-        background: #373737;
+        background: #f8f8f8;
     }
 
     button#btn_delete.recent::before {
@@ -157,11 +157,11 @@ $categories = $bookModel->getCategoriesFromDB();
     }
 
     button#btn_start {
-        background-color: #FFD4AC;
+        background-color: #59ba78;
     }
 
     button#btn_complete {
-        background-color: #59BA78;
+        background-color: #B08BD5;
     }
 
     button#btn_stop {
@@ -169,7 +169,7 @@ $categories = $bookModel->getCategoriesFromDB();
     }
 
     .submit {
-        background-color: #59BA78;
+        background-color: #B08BD5;
     }
 
     @media screen and (max-width: 600px) {

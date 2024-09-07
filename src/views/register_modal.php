@@ -62,8 +62,6 @@
 
     /* モーダル */
 
-
-
     .register-modal-container {
         width: max(60vw, 500px);
         height: max(50vh, 350px);
@@ -116,74 +114,11 @@
         z-index: 2;
     }
 
-    /* ボタン以外 */
-    .ijin-modal-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 70%;
-    }
 
-    /* 画像 */
-    .ijin-image {
-        width: 80%;
-        margin-bottom: 0.5rem;
-    }
 
-    /* 名言 */
-    .ijin-text {
-        width: 65%;
-    }
 
-    /* 名前 */
-    .ijin-name {
-        font-size: 1rem;
-    }
 
-    /* 左側 */
-    .ijin-modal-ijin-image-and-name {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 30%;
-    }
-
-    /* ボタン */
-    .ijin-modal button {
-        margin-top: 2rem;
-        background-color: #59BA78;
-    }
 
     /* 600pxでブレイクポイントを設定（スマホ <-> タブレット、PC想定） */
-    @media screen and (max-width: 600px) {
-
-        .ijin-modal-container {
-            /* モーダルのサイズ */
-            width: 90%;
-            height: 50%;
-            min-height: 400px;
-            padding: 1rem 0.5rem;
-        }
-
-        .ijin-modal-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 70%;
-        }
-
-        .ijin-text {
-            width: 90%;
-        }
-
-        .ijin-image {
-            width: 40%;
-        }
-
-        .ijin-modal-ijin-image-and-name {
-            width: 90%;
-        }
-    }
+    @media screen and (max-width: 600px) {}
 </style>
