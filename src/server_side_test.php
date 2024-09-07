@@ -21,10 +21,12 @@ $bookModel = new BookModel();
 // $categories = $bookModel->getCategoriesFromDB();
 // echo json_encode($categories);
 
-
-
 // GPT取得のテスト
 // $gptController = new GPTController();
 // $ijinText = $gptController->getMessageFromGpt();
 
 // echo $ijinText;
+
+// 合計学習時間の取得
+$totalStudyTime = $bookModel->getTotalStudyMinuteFromDB();
+echo json_encode($totalStudyTime);

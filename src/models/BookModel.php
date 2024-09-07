@@ -33,14 +33,14 @@ class BookModel
         }
     }
 
-    //
+    // データ取得用汎用関数
     private function fetchData($sql, $params = [])
     {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
 
     // 本棚用データを取得
     public function getBookDataFromDB()
@@ -65,10 +65,7 @@ class BookModel
 
 
         // クエリの実行
-        $result = $this->pdo->query($sql);
         return $this->fetchData($sql);
-        // 結果を返す
-        // return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
@@ -117,25 +114,25 @@ class BookModel
         if (empty($categoryNames)) {
             throw new Exception('Category names array is empty.');
         }
-    
+
         // カテゴリー名の配列をプレースホルダに変換
         $placeholders = implode(',', array_fill(0, count($categoryNames), '?'));
-    
+
         // SQLクエリの作成
         $sql = "SELECT category_id, category_name FROM categories WHERE category_name IN ($placeholders)";
-    
+
         // クエリの実行
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($categoryNames);
-    
+
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
         // 結果を連想配列に変換（category_name => category_id の形式）
         $categoryIds = [];
         foreach ($result as $row) {
             $categoryIds[$row['category_name']] = $row['category_id'];
         }
-    
+
         return $categoryIds;
     }
 
@@ -220,10 +217,18 @@ class BookModel
         $stmt->execute($params);
     }
 
+    // 使用可能なカバーIDを取得
     public function getAvailableCoverIds()
     {
         $sql = "SELECT cover_id FROM book_covers WHERE cover_id NOT IN (SELECT cover_id FROM category_cover)";
         $result = $this->pdo->query($sql);
         return $result->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    // 合計学習時間を取得
+    public function getTotalStudyMinuteFromDB()
+    {
+        $sql = "SELECT SUM(session_duration_minutes) AS 'total_study_minutes' from study_sessions";
+        return $this->fetchData($sql);
     }
 }

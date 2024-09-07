@@ -40,8 +40,6 @@ class BookController
         // モデルからデータを取得
         $categories = $this->bookModel->getCategoriesFromDB();
 
-        // 変換が必要であれば変換
-        // $categories = $this->
 
         // データをJSON形式で返す
         return json_encode($categories);
@@ -59,6 +57,19 @@ class BookController
 
         // 学習セッション保存
         $this->saveStudySessions($studyData);
+    }
+
+
+
+    // 合計勉強時間を取得するメソッド
+    public function getTotalStudyTime()
+    {
+
+        $totalStudyMinutes = $this->bookModel->getTotalStudyMinuteFromDB();
+
+        if(!empty($totalStudyMinutes)){
+            return json_encode($totalStudyMinutes);
+        }
     }
 
 
@@ -151,4 +162,7 @@ class BookController
 
         $this->bookModel->sendStudySessions($studySessionsData);
     }
+
+
+
 }
