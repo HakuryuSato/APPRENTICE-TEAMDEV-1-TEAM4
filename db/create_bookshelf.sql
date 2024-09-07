@@ -90,14 +90,20 @@ INSERT INTO categories (category_id, category_name) VALUES
 (2, 'JavaScript'),
 (3, 'HTML/CSS'),
 (4, 'Laravel'),
-(5, 'MySQL');
+(5, 'MySQL'),
+(6, 'Ruby On Rails'),
+(7, 'Paiza'),
+(8, 'AtCoder');
 
 INSERT INTO category_cover (category_id, cover_id) VALUES
 (1, 1),
 (2, 2),
 (3, 3),
 (4, 4),
-(5, 5);
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8);
 
 INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) VALUES
 (1, 's', 'blue', '#000000'), 
@@ -106,10 +112,10 @@ INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) V
 (4, 's', 'red', '#000000'), 
 (5, 'm', 'purple', '#000000'), 
 (6, 'l', 'green', '#000000'), 
-(7, 's', 'orange', '#000000'), 
-(8, 'm', 'black', '#000000'), 
-(9, 'l', 'pink', '#000000'), 
-(10, 's', 'gray', '#000000');
+(7, 's', 'blue', '#000000'), 
+(8, 'm', 'yellow', '#000000'), 
+(9, 'l', 'white', '#000000'), 
+(10, 's', 'blue', '#000000');
 
 
 
@@ -117,23 +123,23 @@ INSERT INTO book_covers (cover_id, cover_image, cover_color, cover_text_color) V
 INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 15, '2024-05-16 05:53:47');
 INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (2, 15, '2023-11-24 05:53:47');
 INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 111, '2023-10-16 05:53:47');
-INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (2, 79, '2023-10-08 05:53:47');
-INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 88, '2023-10-06 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 15, '2024-07-20 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 116, '2023-09-03 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 15, '2024-05-24 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 102, '2023-09-30 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 262, '2024-03-01 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 30, '2023-10-19 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (2, 125, '2024-06-09 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 286, '2024-01-04 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (2, 246, '2024-02-03 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 137, '2024-04-14 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 102, '2024-08-08 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 259, '2024-06-26 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 297, '2024-01-25 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 255, '2024-05-09 05:53:47');
--- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 272, '2024-05-13 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 79, '2023-10-08 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (5, 88, '2023-10-06 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (6, 15, '2024-07-20 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (7, 116, '2023-09-03 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (8, 15, '2024-05-24 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 102, '2023-09-30 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 262, '2024-03-01 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 30, '2023-10-19 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (2, 125, '2024-06-09 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 286, '2024-01-04 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (2, 246, '2024-02-03 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 137, '2024-04-14 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 102, '2024-08-08 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 259, '2024-06-26 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 297, '2024-01-25 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 255, '2024-05-09 05:53:47');
+INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (4, 272, '2024-05-13 05:53:47');
 -- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 117, '2023-09-03 05:53:47');
 -- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (3, 85, '2023-11-25 05:53:47');
 -- INSERT INTO study_sessions (category_id, session_duration_minutes, session_date) VALUES (1, 68, '2024-02-12 05:53:47');
