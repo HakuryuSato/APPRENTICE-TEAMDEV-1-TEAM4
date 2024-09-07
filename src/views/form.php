@@ -11,7 +11,7 @@ $categories = $bookModel->getCategoriesFromDB();
 ?>
 
 <!-- action部分を佐藤さんプログラムと結合 -->
-<form id="form" method="post" action="#">
+<div id="form">
     <div class="timer-container">
         <div class="category-timer">
             <select name="new-task" class="recent category" id="inputCategory">
@@ -36,14 +36,14 @@ $categories = $bookModel->getCategoriesFromDB();
         </tbody>
     </table>
     <!-- 提出ボタン-->
-    <button class="submit" id="btn_submit" name="btn_submit" type="submit">
+    <button class="submit" id="end-todays-study" name="btn_submit" type="submit">
         今日の学習を終了する
     </button>
-</form>
+</div>
 
 
 <style>
-    form {
+    div#form {
         display: flex;
         flex-direction: column;
         align-items: center;

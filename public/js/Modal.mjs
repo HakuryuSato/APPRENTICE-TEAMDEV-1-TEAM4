@@ -12,16 +12,14 @@ export class Modal {
         this.modal = document.getElementById(id);
         this.closeButton = this.modal.querySelector(".close");
 
-        console.log(`Modal element with id '${id}' found.`);
     }
 
     open() {
-        console.log("modal open")
         this.modal.style.setProperty('display', 'block');
     }
 
     close() {
-        console.log("modal close");
+
         this.modal.style.setProperty('display', 'none', 'important');
     }
 

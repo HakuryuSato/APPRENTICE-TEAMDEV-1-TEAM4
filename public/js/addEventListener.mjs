@@ -6,17 +6,21 @@ export function addEventListener() {
         // モーダル用インスタンス  -------------------------------------------------
         const ijinModal = new Modal("ijin-modal"); // 偉人モーダル
         const registerModal = new Modal("register-modal"); // 登録モーダル
-        const registerConfirmModal = new Modal("register-confirm-modal"); // 確認用モーダル
-
 
         // ボタン群  -------------------------------------------------
-        // 勉強開始ボタン
-        const startStudyButton = document.getElementById(
-            "start-study-button",
-        );
+        
         // 今日の勉強を終えるボタン
         const endTodaysStudyButton = document.getElementById(
             "end-todays-study",
+        );
+
+        // 記録するボタン
+        const registerConfirmButton = document.getElementById(
+            "register-confirm-button",
+        );
+
+        const registerConfirmCloseButton = document.getElementById(
+            "register-confirm-close",
         );
 
         // 偉人閉じるボタン
@@ -24,39 +28,22 @@ export function addEventListener() {
             "ijin-modal-close",
         );
 
-        // 登録確認ボタン
-        const registerConfirmButton = document.getElementById(
-            "register-confirm-button",
-        );
-        //  -------------------------------------------------
-
-
-
 
         // クリックイベントリスナー群  -------------------------------------------------
-        // 偉人モーダルを表示する
-        addClickListener(endTodaysStudyButton, () => ijinModal.open());
+        // register_modal.phpを表示する
+        addClickListener(endTodaysStudyButton, () => registerModal.open());
 
+        // register_modal.phpを閉じる
+        addClickListener(registerConfirmButton, () => {
+            registerModal.close();  // 最初の処理: registerModalを閉じる
+            ijinModal.open();       // 次の処理: ijinModalを開く
+        });
         // 偉人モーダルを閉じる
         addClickListener(ijinModalCloseButton, () => ijinModal.close());
 
-        // 登録モーダルを表示する
-        addClickListener(startStudyButton, () => registerModal.open());
+        //右上の✖️をおすとregistermodalを閉じる
+        addClickListener(registerConfirmCloseButton, () => registerModal.close());
 
-        // 登録モーダルを閉じる
-        addClickListener(registerConfirmButton, () => registerModal.close());
-
-        // 登録確認モーダルを表示する
-        addClickListener(
-            endTodaysStudyButton,
-            () => registerConfirmModal.open(),
-        );
-
-        // 登録確認モーダルを閉じる
-        addClickListener(
-            registerConfirmButton,
-            () => registerConfirmModal.close(),
-        );
         //  -------------------------------------------------
     });
 }

@@ -64,8 +64,9 @@ button:hover {
   opacity: 0.7;
 }
 
+/* デフォルトで非表示にする */
 .modal {
-  display: none; /* デフォルトで非表示にする */
+  display: none;
 }
 
 @media screen and (max-width: 900px) {

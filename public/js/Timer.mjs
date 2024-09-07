@@ -1,6 +1,7 @@
 import { formatTime } from "./timerUtils.mjs";
 import { saveToLocalStorage, getDataFromLocalStorage, saveDataStudyHistory } from "./storageUtils.mjs";
 import { addTd } from "./domUtils.mjs";
+import { addTodayRecord } from "./displayStudyHistoryAtModal.mjs";
 
 export class Timer {
   constructor() {
@@ -8,14 +9,8 @@ export class Timer {
     this.studyHistoryList = [];
     this.studyHistoryList = getDataFromLocalStorage("studyHistoryList");
     this.currentSeconds = getDataFromLocalStorage("currentTimeElapsed");
-
-    //学習履歴リスト初期表示
-    if(this.studyHistoryList){
-      this.studyHistoryList.forEach(session => {
-        addTd(session);
-      });
-    }
     this.inputCategory = document.querySelector('#inputCategory');
+    this.displayStudyHistory();
 
     //リロード時に選択項目、現時点の経過時間を保存
     const savedValue = localStorage.getItem('selectedOption');
@@ -83,4 +78,20 @@ export class Timer {
     const selected = this.inputCategory.value;
     localStorage.setItem('selectedOption', selected);
   };
+
+  displayStudyHistory(){
+    if(this.studyHistoryList){
+      this.studyHistoryList.forEach(session => {
+        addTd(session);
+      });
+    }
+  }
+  // モーダルに累計を表示
+  displayStudyHistoryAtModal(){
+    if(this.studyHistoryList){
+      this.studyHistoryList.forEach(session => {
+        addTodayRecord(session);
+      });
+    }
+  }
 }
