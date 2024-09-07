@@ -15,7 +15,7 @@ $categories = $bookModel->getCategoriesFromDB();
     <div class="timer-container">
         <div class="category-timer">
             <select name="new-task" class="recent category" id="inputCategory">
-                <option value="">学習内容を選択</option>
+                <option value="default">学習内容を選択</option>
                 <?php foreach ($categories as $index => $category): ?>
                     <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?></option>
                 <?php endforeach; ?>
@@ -24,19 +24,18 @@ $categories = $bookModel->getCategoriesFromDB();
         </div>
         <div class="btn-container">
             <button class="recent" id="btn_start" name="btn_start" type="button">開始</button>
-            <button class="recent" id="btn_stop" name="btn_stop" type="button">停止</button>
-            <button class="recent" id="btn_complete" name="btn_complete" type="button">完了</button>
+            <button class="recent unvisible" id="btn_stop" name="btn_stop" type="button">停止</button>
+            <button class="recent unvisible" id="btn_complete" name="btn_complete" type="button">完了</button>
         </div>
     </div>
     <p id="in_study_title">
         <span id="in_study_category"></span>
     </p>
     <table id="learning_history_list" class="learning_history_list">
-        <tbody id="tmp_history">
-        </tbody>
+        <tbody id="tmp_history"></tbody>
     </table>
     <!-- 提出ボタン-->
-    <button class="submit" id="end-todays-study" name="btn_submit" type="submit">
+    <button class="submit unvisible" id="end-todays-study" name="btn_submit" type="submit">
         今日の学習を終了する
     </button>
 </div>
@@ -78,12 +77,17 @@ $categories = $bookModel->getCategoriesFromDB();
         font-family: "Oxanium", "ヒラギノ角ゴシック", "メイリオ", sans-serif;
         font-weight: 400;
         font-size: 1.25em;
-        height: 2rem;
-        line-height: 2rem;
+        display: grid;
+        place-items: center;
+        padding-top: 0.25em;
     }
 
     .recent {
         text-align: center;
+    }
+
+    .unvisible {
+        display: none;
     }
 
     ul {
@@ -96,9 +100,10 @@ $categories = $bookModel->getCategoriesFromDB();
 
     td {
         text-align: center;
-        padding: 0.5rem;
+        padding: 0 0.5rem;
         height: 2rem;
         line-height: 2rem;
+        margin: 0.25rem 0;
     }
 
     td#history_category {
@@ -138,7 +143,7 @@ $categories = $bookModel->getCategoriesFromDB();
         top: 50%;
         left: 50%;
         width: 3px;
-        height: 1rem;
+        height: 1.25rem;
         background: #f8f8f8;
     }
 
@@ -177,17 +182,20 @@ $categories = $bookModel->getCategoriesFromDB();
             gap: 1rem 0;
         }
 
+        .timer-container {
+            flex-direction: column;
+        }
+
         .category-timer {
             gap: 1rem;
         }
 
         .btn-container {
+            justify-content: center;
             gap: 1rem;
         }
 
         td {
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
             height: 1.25rem;
             line-height: 1.25rem;
         }
@@ -201,9 +209,15 @@ $categories = $bookModel->getCategoriesFromDB();
         button#btn_delete.recent {
             width: 1.25rem;
             height: 1.25rem;
-            aspect-ratio: 1 / 1;
-            display: block;
-            position: relative;
         }
+
+
+        button#btn_delete.recent::before,
+        button#btn_delete.recent::after {
+            content: '';
+            width: 2px;
+            height: 0.75rem;
+        }
+
     }
 </style>

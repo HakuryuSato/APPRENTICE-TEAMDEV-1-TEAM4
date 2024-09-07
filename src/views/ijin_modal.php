@@ -108,6 +108,8 @@
     .ijin-modal button {
         margin-top: 2rem;
         background-color: #B08BD5;
+        color: #373737;
+        border: none;
     }
 
     /* 600pxでブレイクポイントを設定（スマホ <-> タブレット、PC想定） */

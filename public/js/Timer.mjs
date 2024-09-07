@@ -14,8 +14,11 @@ export class Timer {
 
     //リロード時に選択項目、現時点の経過時間を保存
     const savedValue = localStorage.getItem('selectedOption');
-    this.inputCategory.value = savedValue;
+    console.log(savedValue);
+    if(savedValue != "default"){
 
+    this.inputCategory.value = savedValue;
+    } 
     this.displayTimer = document.querySelector('#timer-display');
     this.displayTimer.innerText = formatTime(this.currentSeconds);
   }
@@ -23,7 +26,7 @@ export class Timer {
     /* タイマースタート */
   timerStart(){
     const categoryInStudy = this.inputCategory.value;
-    if(this.timerId === null && categoryInStudy !== ""){
+    if(this.timerId === null && categoryInStudy !== "default"){
       this.timerId = setInterval(() => {
         this.currentSeconds++;
         this.displayTimer.innerText = formatTime(this.currentSeconds);
@@ -43,6 +46,7 @@ export class Timer {
   /* タイマーリセット */
   timerComplete()
   {
+    
     const categoryInStudy = getDataFromLocalStorage("categoryInStudy");
     if(categoryInStudy) {
       this.addHistory(categoryInStudy);
@@ -50,9 +54,12 @@ export class Timer {
     this.currentSeconds = 0;
     saveToLocalStorage('currentTimeElapsed', 0);
     saveToLocalStorage('categoryInStudy', '');
+    saveToLocalStorage('selectedOption', 'default');
     this.displayTimer.innerText = '00:00:00';
     const inStudyCategory = document.querySelector('#in_study_category');
     inStudyCategory.innerText = "";
+    this.inputCategory.value = "default";
+    
   }
 
   /* 学習中カテゴリー表示*/
