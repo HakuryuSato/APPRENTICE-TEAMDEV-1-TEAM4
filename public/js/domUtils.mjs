@@ -1,20 +1,19 @@
 import { convertTimeToSeconds, formatTime } from "./timerUtils.mjs";
 import { saveDataStudyHistory } from "./storageUtils.mjs";
 
-export function confirmSubmit(e)
-{
-  const answer = confirm("提出してもよいですか？");
+// export function confirmSubmit(e)
+// {
+//   const answer = confirm("提出してもよいですか？");
 
-  if(!answer){
-    e.preventDefault();
-  }
-}
+//   if(!answer){
+//     e.preventDefault();
+//   }
+// }
 
   /* 行追加 */
 export function addTd(finishCategory) {
-    const tbody = document.querySelector('tbody');
+    const tbody = document.querySelector('tbody#tmp_history');
     const newRow = createRow(finishCategory);
-
     tbody.appendChild(newRow);
 };
 

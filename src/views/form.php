@@ -32,7 +32,7 @@ $categories = $bookModel->getCategoriesFromDB();
         <span id="in_study_category"></span>
     </p>
     <table id="learning_history_list" class="learning_history_list">
-        <tbody>
+        <tbody id="tmp_history">
         </tbody>
     </table>
     <!-- 提出ボタン-->

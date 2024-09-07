@@ -9,15 +9,8 @@
                     <p>今日の学習内容</p>
                     <!--ここに記録済みタスクが縦に並ぶ-->
                     <table id="learning_history_list" class="learning_history_list">
-                        <tbody>
-                            <tr>
-                                <td>Laravel</td>
-                                <td>00:00:01</td>
-                            </tr>
-                            <tr class="total">
-                                <td>累計</td>
-                                <td>00:00:01</td>
-                            </tr>
+                        <tbody id="total_history">
+
                         </tbody>
                     </table>
 
