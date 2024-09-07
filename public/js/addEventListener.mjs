@@ -1,4 +1,7 @@
 import { Modal } from "./Modal.mjs";
+import { sendLocalStorageData } from "./sendLocalStorageData.mjs";
+import { renderShelf } from "./renderShelf.mjs";
+import { timerManagement } from "./timerManagement.mjs";
 
 // メイン関数
 export function addEventListener() {
@@ -39,10 +42,17 @@ export function addEventListener() {
         // register_modal.phpを閉じる
         addClickListener(registerConfirmButton, () => {
             registerModal.close();  // 最初の処理: registerModalを閉じる
+            sendLocalStorageData(); 
             ijinModal.open();       // 次の処理: ijinModalを開く
         });
         // 偉人モーダルを閉じる
-        addClickListener(ijinModalCloseButton, () => ijinModal.close());
+        addClickListener(ijinModalCloseButton, () => {
+            // Timerクラスをインスタンス化。勉強リストを消す。
+            localStorage.clear(); // ローカルストレージを消す。
+            timerManagement();
+            renderShelf();
+            ijinModal.close();
+        });
 
         //右上の✖️をおすとregistermodalを閉じる
         addClickListener(registerConfirmCloseButton, () => registerModal.close());

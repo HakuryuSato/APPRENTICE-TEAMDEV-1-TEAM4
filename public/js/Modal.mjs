@@ -19,8 +19,9 @@ export class Modal {
     }
 
     close() {
-
         this.modal.style.setProperty('display', 'none', 'important');
     }
+
+    
 
 }

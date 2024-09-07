@@ -49,6 +49,7 @@ export class Timer {
     }
     this.currentSeconds = 0;
     saveToLocalStorage('currentTimeElapsed', 0);
+    saveToLocalStorage('categoryInStudy', '');
     this.displayTimer.innerText = '00:00:00';
     const inStudyCategory = document.querySelector('#in_study_category');
     inStudyCategory.innerText = "";
@@ -69,6 +70,7 @@ export class Timer {
   addHistory(finishCategory) {
     finishCategory.session_duration_minutes = this.currentSeconds;
     addTd(finishCategory);
+    this.studyHistoryList = getDataFromLocalStorage("studyHistoryList") || [];
     this.studyHistoryList.push(finishCategory);
     saveDataStudyHistory('studyHistoryList',this.studyHistoryList);
   }
@@ -80,10 +82,14 @@ export class Timer {
   };
 
   displayStudyHistory(){
+  
     if(this.studyHistoryList){
       this.studyHistoryList.forEach(session => {
         addTd(session);
       });
+    } else {
+      const tbody = document.querySelector('tbody#tmp_history');
+      tbody.innerHTML = '';
     }
   }
   // モーダルに累計を表示
