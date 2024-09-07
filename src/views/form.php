@@ -15,7 +15,7 @@ $categories = $bookModel->getCategoriesFromDB();
     <div class="timer-container">
         <div class="category-timer">
             <select name="new-task" class="recent category" id="inputCategory">
-                <option value="">学習内容を選択</option>
+                <option value="default">学習内容を選択</option>
                 <?php foreach ($categories as $index => $category): ?>
                     <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?></option>
                 <?php endforeach; ?>
@@ -24,19 +24,18 @@ $categories = $bookModel->getCategoriesFromDB();
         </div>
         <div class="btn-container">
             <button class="recent" id="btn_start" name="btn_start" type="button">開始</button>
-            <button class="recent" id="btn_stop" name="btn_stop" type="button">停止</button>
-            <button class="recent" id="btn_complete" name="btn_complete" type="button">完了</button>
+            <button class="recent unvisible" id="btn_stop" name="btn_stop" type="button">停止</button>
+            <button class="recent unvisible" id="btn_complete" name="btn_complete" type="button">完了</button>
         </div>
     </div>
     <p id="in_study_title">
         <span id="in_study_category"></span>
     </p>
     <table id="learning_history_list" class="learning_history_list">
-        <tbody id="tmp_history">
-        </tbody>
+        <tbody id="tmp_history"></tbody>
     </table>
     <!-- 提出ボタン-->
-    <button class="submit" id="end-todays-study" name="btn_submit" type="submit">
+    <button class="submit unvisible" id="end-todays-study" name="btn_submit" type="submit">
         今日の学習を終了する
     </button>
 </div>
@@ -84,6 +83,10 @@ $categories = $bookModel->getCategoriesFromDB();
 
     .recent {
         text-align: center;
+    }
+
+    .unvisible {
+        display: none;
     }
 
     ul {

@@ -58,7 +58,13 @@ function deleteList(e)
 {
   const btnDelete = e.target;
   const td = btnDelete.parentElement;
+  const tbody = document.querySelector('tbody#tmp_history');
+  const endTodaysStudy = document.querySelector('#end-todays-study');
   const tr = td.parentElement;
   tr.remove();
+  console.log(tbody.hasChildNodes());
+  if(!tbody.hasChildNodes()){
+    endTodaysStudy.classList.toggle('unvisible');
+  }
   saveDataStudyHistory();
 }
