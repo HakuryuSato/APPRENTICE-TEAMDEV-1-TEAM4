@@ -77,8 +77,9 @@ $categories = $bookModel->getCategoriesFromDB();
         font-family: "Oxanium", "ヒラギノ角ゴシック", "メイリオ", sans-serif;
         font-weight: 400;
         font-size: 1.25em;
-        height: 2rem;
-        line-height: 2rem;
+        display: grid;
+        place-items: center;
+        padding-top: 0.25em;
     }
 
     .recent {
@@ -99,9 +100,10 @@ $categories = $bookModel->getCategoriesFromDB();
 
     td {
         text-align: center;
-        padding: 0.5rem;
+        padding: 0 0.5rem;
         height: 2rem;
         line-height: 2rem;
+        margin: 0.25rem 0;
     }
 
     td#history_category {
@@ -141,7 +143,7 @@ $categories = $bookModel->getCategoriesFromDB();
         top: 50%;
         left: 50%;
         width: 3px;
-        height: 1rem;
+        height: 1.25rem;
         background: #f8f8f8;
     }
 
@@ -180,17 +182,20 @@ $categories = $bookModel->getCategoriesFromDB();
             gap: 1rem 0;
         }
 
+        .timer-container {
+            flex-direction: column;
+        }
+
         .category-timer {
             gap: 1rem;
         }
 
         .btn-container {
+            justify-content: center;
             gap: 1rem;
         }
 
         td {
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
             height: 1.25rem;
             line-height: 1.25rem;
         }
@@ -204,9 +209,15 @@ $categories = $bookModel->getCategoriesFromDB();
         button#btn_delete.recent {
             width: 1.25rem;
             height: 1.25rem;
-            aspect-ratio: 1 / 1;
-            display: block;
-            position: relative;
         }
+
+
+        button#btn_delete.recent::before,
+        button#btn_delete.recent::after {
+            content: '';
+            width: 2px;
+            height: 0.75rem;
+        }
+
     }
 </style>

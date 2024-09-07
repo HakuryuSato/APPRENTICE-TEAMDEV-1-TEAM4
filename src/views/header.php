@@ -16,4 +16,14 @@
     .total {
         padding: 0 1.5rem;
     }
+
+    @media screen and (max-width: 600px) {
+        .header {
+            font-size: 1.25rem;
+        }
+
+        .total {
+            padding: 0 1rem;
+        }
+    }
 </style>

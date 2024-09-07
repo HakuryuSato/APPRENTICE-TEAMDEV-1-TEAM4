@@ -4,23 +4,23 @@
     <div class="register-modal-container">
         <div class="modal-overwrap">
             <span class="close-btn" id="register-confirm-close"></span>
-            <div class="timer-container">
-                <div>
-                    <p>今日の学習内容</p>
-                    <!--ここに記録済みタスクが縦に並ぶ-->
-                    <table id="learning_history_list" class="learning_history_list">
-                        <tbody id="total_history">
+            <div class="register-modal-contents">
 
-                        </tbody>
-                    </table>
+                <p>今日の学習内容</p>
+                <!--ここに記録済みタスクが縦に並ぶ-->
+                <table id="learning_history_list" class="learning_history_list">
+                    <tbody id="total_history">
 
-
-                    <!-- 提出ボタン-->
-                    <button class="close" id="register-confirm-button">記録する</button>
+                    </tbody>
+                </table>
 
 
+                <!-- 提出ボタン-->
+                <button class="close submit" id="register-confirm-button">記録する</button>
 
-                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
         animation: fadeIn 1s ease-in-out;
         width: 100%;
         height: 100%;
-        font-family: "ShipporiMinchoB1", "ヒラギノ", serif;
+
     }
 
     .modal-bg {
@@ -48,6 +48,7 @@
         height: 100%;
         /* 黒い背景色(今回は黒で60%の不透明度) */
         background: rgba(0, 0, 0, 0.6);
+        z-index: 3;
     }
 
     @keyframes fadeIn {
@@ -64,26 +65,56 @@
 
     .register-modal-container {
         width: max(60vw, 500px);
-        height: max(50vh, 350px);
-        background-color: #C7B299;
+        height: fit-content;
+        background-color: #f8f8f8;
         display: flex;
         flex-direction: column;
-        /* 縦並び */
         align-items: center;
-        /* 中央揃え */
         justify-content: center;
-        /* 画面中央 */
         position: fixed;
         inset: 0;
         margin: auto;
-        /* 最前面 */
-        z-index: 1000;
+        z-index: 10;
     }
 
     .modal-overwrap {
         width: 100%;
         height: 100%;
         position: relative;
+        z-index: 4;
+
+    }
+
+    .register-modal-contents {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .register-modal-contents p {
+        margin-top: 2rem;
+        height: 2rem;
+    }
+
+    .register-modal-contents table {
+        height: fit-content;
+        margin: 0 auto;
+    }
+
+    .register-modal-contents td.history_category {
+        text-align: left;
+    }
+
+    .register-modal-contents button {
+        height: 2rem;
+        min-width: auto;
+        width: fit-content;
+        margin-bottom: 1.5rem;
     }
 
     .close-btn {
@@ -115,10 +146,25 @@
     }
 
 
-
-
-
-
     /* 600pxでブレイクポイントを設定（スマホ <-> タブレット、PC想定） */
-    @media screen and (max-width: 600px) {}
+    @media screen and (max-width: 600px) {
+
+        .register-modal-container {
+            /* モーダルのサイズ */
+            width: 90%;
+            height: fit-content;
+            padding: 1rem 0.5rem;
+        }
+
+        .register-modal-contents p {
+            margin-top: 1rem;
+            height: 1rem;
+        }
+
+        .register-modal-contents button {
+            height: fit-content;
+            margin-bottom: 1rem;
+        }
+
+    }
 </style>

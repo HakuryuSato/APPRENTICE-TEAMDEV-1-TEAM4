@@ -72,7 +72,7 @@ button:hover {
 }
 
 @media screen and (max-width: 900px) {
-  input,
+  select,
   button {
     min-width: 4rem;
     font-size: 1rem;
@@ -84,6 +84,11 @@ button:hover {
 @media screen and (max-width: 600px) {
   body {
     font-size: 1rem;
+  }
+
+  select,
+  button {
+    height: 1.75rem;
   }
 
   canvas {
