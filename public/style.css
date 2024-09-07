@@ -35,6 +35,7 @@ body {
 }
 
 canvas {
+  /* max-height: 450px; */
   height: 60vh;
   aspect-ratio: 484 / 644;
 }
@@ -58,6 +59,7 @@ button {
   min-width: 8rem;
   border: 1px solid #d3d3d3;
   transition: 0.3s;
+  color: #f8f8f8;
 }
 
 button:hover {

@@ -10,7 +10,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        padding: 5% 0;
+        padding: 2% 0;
 
     }
 </style>
