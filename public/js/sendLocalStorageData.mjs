@@ -2,7 +2,7 @@ import { postStudyData } from "./post_study_data.mjs";
 
 export async function sendLocalStorageData() {
     // ローカルストレージからデータを取得
-    const timerList = localStorage.getItem("timerList");
+    const timerList = localStorage.getItem("studyHistoryList");
 
     if (!timerList) { // ローカルストレージにデータがなければ終了
         console.log("No data to send.");

@@ -1,5 +1,5 @@
 <div class='modal' id="ijin-modal">
-    <div  class="ijin-modal" types="">
+    <div class="ijin-modal" types="">
         <div class="modal-bg"></div>
         <div class="ijin-modal-container">
             <div class="ijin-modal-content">
@@ -14,7 +14,7 @@
                     <div id='ijin-text'></div>
                 </div>
             </div>
-            <button id='ijin-modal-close'>ありがとう</button>
+            <button class="close" id='ijin-modal-close'>ありがとう</button>
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { formatTime } from "./timerUtils.mjs";
 import { saveToLocalStorage, getDataFromLocalStorage, saveDataStudyHistory } from "./storageUtils.mjs";
 import { addTd } from "./domUtils.mjs";
+import { addTodayRecord, clearModalTable } from "./displayStudyHistoryAtModal.mjs";
 
 export class Timer {
   constructor() {
@@ -8,14 +9,8 @@ export class Timer {
     this.studyHistoryList = [];
     this.studyHistoryList = getDataFromLocalStorage("studyHistoryList");
     this.currentSeconds = getDataFromLocalStorage("currentTimeElapsed");
-
-    //学習履歴リスト初期表示
-    if(this.studyHistoryList){
-      this.studyHistoryList.forEach(session => {
-        addTd(session);
-      });
-    }
     this.inputCategory = document.querySelector('#inputCategory');
+    this.displayStudyHistory();
 
     //リロード時に選択項目、現時点の経過時間を保存
     const savedValue = localStorage.getItem('selectedOption');
@@ -54,6 +49,7 @@ export class Timer {
     }
     this.currentSeconds = 0;
     saveToLocalStorage('currentTimeElapsed', 0);
+    saveToLocalStorage('categoryInStudy', '');
     this.displayTimer.innerText = '00:00:00';
     const inStudyCategory = document.querySelector('#in_study_category');
     inStudyCategory.innerText = "";
@@ -74,6 +70,7 @@ export class Timer {
   addHistory(finishCategory) {
     finishCategory.session_duration_minutes = this.currentSeconds;
     addTd(finishCategory);
+    this.studyHistoryList = getDataFromLocalStorage("studyHistoryList") || [];
     this.studyHistoryList.push(finishCategory);
     saveDataStudyHistory('studyHistoryList',this.studyHistoryList);
   }
@@ -83,4 +80,26 @@ export class Timer {
     const selected = this.inputCategory.value;
     localStorage.setItem('selectedOption', selected);
   };
+
+  displayStudyHistory(){
+  
+    if(this.studyHistoryList){
+      this.studyHistoryList.forEach(session => {
+        addTd(session);
+      });
+    } else {
+      const tbody = document.querySelector('tbody#tmp_history');
+      tbody.innerHTML = '';
+    }
+  }
+  // モーダルに累計を表示
+  displayStudyHistoryAtModal(){
+    clearModalTable();
+    this.studyHistoryList = getDataFromLocalStorage("studyHistoryList");
+    if(this.studyHistoryList){
+      this.studyHistoryList.forEach(session => {
+        addTodayRecord(session);
+      });
+    }
+  }
 }
