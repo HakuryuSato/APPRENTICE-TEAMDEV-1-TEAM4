@@ -113,7 +113,7 @@ export class Timer {
 
   removeButtonInivisibility(button){
     this.studyHistoryList = getDataFromLocalStorage("studyHistoryList");
-    if(this.studyHistoryList.length !== 0)
+    if(typeof this.studyHistoryList.length !== "undefined" && this.studyHistoryList.length !== 0)
     {
       button.classList.remove("invisible");
     }
