@@ -4,37 +4,37 @@
 import { fetchIjinText } from "./fetch_ijinText.mjs";
 
 export function addEventListener_ijin() {
-
-
+    
     // 1日の勉強を終えるボタンを押すと実行、1文字ずつテキストが表示される。
-    document.addEventListener("DOMContentLoaded", () => { 
-        // 偉人のテキストが入るid
-        const ijinTextBox = document.getElementById("ijin-text");
+    document.getElementById("register-confirm-button").addEventListener(
+        "click",
+        () => {
+            // 偉人のテキストが入るid
+            const ijinTextBox = document.getElementById("ijin-text");
 
+            fetchIjinText().then((data) => {
+                // データがなければデフォルトテキスト
+                const text = data.message
+                    ? data.message
+                    : "明日も前へ進み続けよう。困難を乗り越えるその姿勢が、偉大な歴史を紡いでいく力となる。";
 
-        fetchIjinText().then((data) => {
+                // console.log(text);
+                displayTextOneByOne(ijinTextBox, text);
+            });
 
-            // データがなければデフォルトテキスト
-            const text = data.message 
-                ? data.message
-                : "明日も前へ進み続けよう。困難を乗り越えるその姿勢が、偉大な歴史を紡いでいく力となる。";
-            
-            // console.log(text);
-            displayTextOneByOne(ijinTextBox, text);
-        });
+            function displayTextOneByOne(element, text, speed = 50) {
+                let index = 0;
+                element.textContent = ""; // 初期化
 
-        function displayTextOneByOne(element, text, speed = 50) {
-            let index = 0;
-            element.textContent = ""; // 初期化
+                const timer = setInterval(() => {
+                    element.textContent += text[index];
+                    index++;
 
-            const timer = setInterval(() => {
-                element.textContent += text[index];
-                index++;
-
-                if (index >= text.length) {
-                    clearInterval(timer);
-                }
-            }, speed);
-        }
-    });
+                    if (index >= text.length) {
+                        clearInterval(timer);
+                    }
+                }, speed);
+            }
+        },
+    );
 }
