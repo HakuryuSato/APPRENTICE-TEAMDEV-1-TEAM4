@@ -36,7 +36,7 @@ export function timerManagement() {
   function toggleVisibleButton(button) {
     button.classList.toggle('unvisible');
   }
-  
+
   function controlCompleteButton(){
     if(!completeButton.classList.contains('unvisible')){
       toggleVisibleButton(completeButton);
@@ -50,11 +50,10 @@ export function timerManagement() {
   }
 
   function controlStartButton() {
-    const inStudyCategory = document.querySelector('#inputCategory'); 
-    if(inStudyCategory.value !== "default"){
+    const inStudyCategory = document.querySelector('#inputCategory');
+    if(inStudyCategory.value === null || inStudyCategory.value !== "default"){
       toggleVisibleButton(startButton);
       toggleVisibleButton(stopButton);
     }
   }
 }
-
