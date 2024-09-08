@@ -36,3 +36,16 @@ export function refreshTable(){
     const tbody = document.querySelector('tbody#tmp_history');
     tbody.innerHTML = '';
 }
+
+export function displayTotalTimeAtModal(studyHistoryList){
+    const tbody = document.querySelector('tbody#total_history');
+    const newRow = document.createElement('tr');
+    newRow.setAttribute('class', 'total_time');
+    const totalTime = formatTime(studyHistoryList.reduce((total, session) => {
+        return total + session.session_duration_minutes;
+    }, 0));
+
+    newRow.appendChild(createTd('modal_total_time_title', 'modal_total_time_title', '累計時間'));
+    newRow.appendChild(createTd('modal_total_time timer', 'modal_total_time', totalTime));
+    tbody.appendChild(newRow);
+}
