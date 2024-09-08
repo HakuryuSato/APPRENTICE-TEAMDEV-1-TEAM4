@@ -19,7 +19,8 @@
 
     @media screen and (max-width: 600px) {
         .header {
-            font-size: 1.25rem;
+            height: 3rem;
+            font-size: 1rem;
         }
 
         .total {
