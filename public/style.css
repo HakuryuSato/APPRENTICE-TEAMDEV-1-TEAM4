@@ -56,7 +56,7 @@ select {
 }
 
 button {
-  min-width: 8rem;
+  min-width: 9rem;
   border: 1px solid #d3d3d3;
   transition: 0.3s;
   color: #f8f8f8;
@@ -71,10 +71,9 @@ button:hover {
   display: none;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   select,
   button {
-    min-width: 6rem;
     font-size: 1rem;
     padding: 0 0.5em;
   }
@@ -89,6 +88,11 @@ button:hover {
   select,
   button {
     height: 1.75rem;
+  }
+
+  select,
+  button {
+    min-width: 6rem;
   }
 
   canvas {
