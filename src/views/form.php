@@ -10,7 +10,6 @@ $bookModel = new BookModel();
 $categories = $bookModel->getCategoriesFromDB();
 ?>
 
-<!-- action部分を佐藤さんプログラムと結合 -->
 <div id="form">
     <div class="timer-container">
         <div class="category-timer">
@@ -52,18 +51,18 @@ $categories = $bookModel->getCategoriesFromDB();
     }
 
     .timer-container {
-        display: flex;
-        flex-direction: row;
+        width: 100%;
+        display: grid;
         justify-content: center;
-        align-items: middle;
+        grid-template-columns: 6fr 4fr;
+        gap: 2rem;
         margin: 0 auto;
-        flex-wrap: wrap;
-        gap: 1rem 1.5rem;
     }
 
     .category-timer {
         display: flex;
         flex-direction: row;
+        justify-content: end;
         gap: 1.5rem;
     }
 
@@ -183,7 +182,13 @@ $categories = $bookModel->getCategoriesFromDB();
         }
 
         .timer-container {
+            display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
         }
 
         .category-timer {
