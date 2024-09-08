@@ -106,7 +106,8 @@
         margin: 0 auto;
     }
 
-    .register-modal-contents td.history_category {
+    .register-modal-contents td.history_category,
+    .modal_total_time_title {
         text-align: left;
     }
 
@@ -115,6 +116,10 @@
         min-width: auto;
         width: fit-content;
         margin-bottom: 1.5rem;
+    }
+
+    tr.total_time {
+        border-top: 1px solid #373737;
     }
 
     .close-btn {

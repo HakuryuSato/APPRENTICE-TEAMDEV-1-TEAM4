@@ -47,11 +47,11 @@ export function addEventListener() {
         });
         // 偉人モーダルを閉じる
         addClickListener(ijinModalCloseButton, () => {
-            // Timerクラスをインスタンス化。勉強リストを消す。
             localStorage.clear(); // ローカルストレージを消す。
             refreshTable();
             renderShelf();
             ijinModal.close();
+            endTodaysStudyButton.classList.add("invisible");
         });
 
         //右上の✖️をおすとregistermodalを閉じる
