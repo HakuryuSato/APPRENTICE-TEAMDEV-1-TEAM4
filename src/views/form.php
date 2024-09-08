@@ -18,6 +18,7 @@ $categories = $bookModel->getCategoriesFromDB();
                 <?php foreach ($categories as $index => $category): ?>
                     <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?></option>
                 <?php endforeach; ?>
+                <option value="newtask">新規項目を作成</option>
             </select>
             <div class="recent timer" id="timer-display" name="timer">00:00:00</div>
         </div>
@@ -47,16 +48,16 @@ $categories = $bookModel->getCategoriesFromDB();
         align-items: center;
         justify-content: center;
         padding: 3rem 0;
-        gap: 2rem 0;
     }
 
     .timer-container {
         width: 100%;
         display: grid;
-        justify-content: center;
+        justify-content: space-around;
         grid-template-columns: 5.5fr 4fr;
         gap: 2rem;
         margin: 0 auto;
+        padding-bottom: 1rem;
     }
 
     .category-timer {
@@ -93,8 +94,13 @@ $categories = $bookModel->getCategoriesFromDB();
         list-style-type: none;
     }
 
+    #in_study_title {
+        padding-bottom: 1rem;
+    }
+
     table {
         border-collapse: collapse;
+        margin-bottom: 1.5rem;
     }
 
     td {
@@ -156,10 +162,6 @@ $categories = $bookModel->getCategoriesFromDB();
         z-index: 2;
     }
 
-    .in_study_title {
-        margin-bottom: 2rem;
-    }
-
     button#btn_start {
         background-color: #59ba78;
     }
@@ -176,17 +178,18 @@ $categories = $bookModel->getCategoriesFromDB();
         background-color: #B08BD5;
     }
 
+    @media screen and (min-width: 1200px) {
+        .timer-container {
+            grid-template-columns: 5.5fr 4fr;
+            gap: 4rem;
+        }
+    }
+
     @media screen and (max-width: 900px) {
 
         .timer-container {
             grid-template-columns: 5fr 4fr;
             gap: 2rem;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        form {
-            gap: 1rem 0;
         }
 
         .timer-container {
@@ -207,6 +210,10 @@ $categories = $bookModel->getCategoriesFromDB();
             justify-content: center;
             gap: 1rem;
         }
+
+    }
+
+    @media screen and (max-width: 600px) {
 
         td {
             height: 1.25rem;
