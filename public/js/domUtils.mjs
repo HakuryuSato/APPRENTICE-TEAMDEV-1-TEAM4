@@ -64,7 +64,7 @@ function deleteList(e)
   tr.remove();
   console.log(tbody.hasChildNodes());
   if(!tbody.hasChildNodes()){
-    endTodaysStudy.classList.toggle('unvisible');
+    endTodaysStudy.classList.toggle('invisible');
   }
   saveDataStudyHistory();
 }

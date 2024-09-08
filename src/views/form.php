@@ -23,8 +23,8 @@ $categories = $bookModel->getCategoriesFromDB();
         </div>
         <div class="btn-container">
             <button class="recent" id="btn_start" name="btn_start" type="button">開始</button>
-            <button class="recent unvisible" id="btn_stop" name="btn_stop" type="button">停止</button>
-            <button class="recent unvisible" id="btn_complete" name="btn_complete" type="button">完了</button>
+            <button class="recent invisible" id="btn_stop" name="btn_stop" type="button">停止</button>
+            <button class="recent invisible" id="btn_complete" name="btn_complete" type="button">完了</button>
         </div>
     </div>
     <p id="in_study_title">
@@ -34,7 +34,7 @@ $categories = $bookModel->getCategoriesFromDB();
         <tbody id="tmp_history"></tbody>
     </table>
     <!-- 提出ボタン-->
-    <button class="submit unvisible" id="end-todays-study" name="btn_submit" type="submit">
+    <button class="submit invisible" id="end-todays-study" name="btn_submit" type="submit">
         今日の学習を終了する
     </button>
 </div>
@@ -85,7 +85,7 @@ $categories = $bookModel->getCategoriesFromDB();
         text-align: center;
     }
 
-    .unvisible {
+    .invisible {
         display: none;
     }
 

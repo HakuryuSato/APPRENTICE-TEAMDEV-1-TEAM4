@@ -111,11 +111,11 @@ export class Timer {
     }
   }
 
-  removeButtonUnvisibility(button){
+  removeButtonInivisibility(button){
     this.studyHistoryList = getDataFromLocalStorage("studyHistoryList");
     if(this.studyHistoryList.length !== 0)
     {
-      button.classList.remove("unvisible");
+      button.classList.remove("invisible");
     }
   }
 }

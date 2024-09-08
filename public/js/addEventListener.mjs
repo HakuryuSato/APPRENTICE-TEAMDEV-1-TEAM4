@@ -51,7 +51,7 @@ export function addEventListener() {
             refreshTable();
             renderShelf();
             ijinModal.close();
-            endTodaysStudyButton.classList.add("unvisible");
+            endTodaysStudyButton.classList.add("invisible");
         });
 
         //右上の✖️をおすとregistermodalを閉じる

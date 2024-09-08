@@ -13,7 +13,7 @@ export function timerManagement() {
   const completeButton = document.querySelector('#btn_complete');
   const endTodaysStudy = document.querySelector('#end-todays-study');
 
-  timer.removeButtonUnvisibility(endTodaysStudy);
+  timer.removeButtonInivisibility(endTodaysStudy);
 
   startButton.addEventListener('click', () => {
     timer.timerStart();
@@ -36,17 +36,17 @@ export function timerManagement() {
 
 
   function toggleVisibleButton(button) {
-    button.classList.toggle('unvisible');
+    button.classList.toggle('invisible');
   }
 
   function controlCompleteButton(){
-    if(!completeButton.classList.contains('unvisible')){
+    if(!completeButton.classList.contains('invisible')){
       toggleVisibleButton(completeButton);
     }
   }
 
   function controlEndTodaysStudy() {
-    if(endTodaysStudy.classList.contains('unvisible')){
+    if(endTodaysStudy.classList.contains('invisible')){
       toggleVisibleButton(endTodaysStudy);
     }
   }
