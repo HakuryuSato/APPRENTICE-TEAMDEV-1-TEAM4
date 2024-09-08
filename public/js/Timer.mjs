@@ -1,7 +1,7 @@
 import { formatTime } from "./timerUtils.mjs";
 import { saveToLocalStorage, getDataFromLocalStorage, saveDataStudyHistory } from "./storageUtils.mjs";
 import { addTd } from "./domUtils.mjs";
-import { addTodayRecord, clearModalTable } from "./displayStudyHistoryAtModal.mjs";
+import { displayTotalTimeAtModal, addTodayRecord, clearModalTable } from "./displayStudyHistoryAtModal.mjs";
 
 export class Timer {
   constructor() {
@@ -107,6 +107,15 @@ export class Timer {
       this.studyHistoryList.forEach(session => {
         addTodayRecord(session);
       });
+      displayTotalTimeAtModal(this.studyHistoryList);
+    }
+  }
+
+  removeButtonUnvisibility(button){
+    this.studyHistoryList = getDataFromLocalStorage("studyHistoryList");
+    if(this.studyHistoryList.length !== 0)
+    {
+      button.classList.remove("unvisible");
     }
   }
 }
