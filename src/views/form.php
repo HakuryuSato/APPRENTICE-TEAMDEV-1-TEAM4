@@ -54,7 +54,7 @@ $categories = $bookModel->getCategoriesFromDB();
         width: 100%;
         display: grid;
         justify-content: center;
-        grid-template-columns: 6fr 4fr;
+        grid-template-columns: 5.5fr 4fr;
         gap: 2rem;
         margin: 0 auto;
     }
@@ -174,6 +174,14 @@ $categories = $bookModel->getCategoriesFromDB();
 
     .submit {
         background-color: #B08BD5;
+    }
+
+    @media screen and (max-width: 900px) {
+
+        .timer-container {
+            grid-template-columns: 5fr 4fr;
+            gap: 2rem;
+        }
     }
 
     @media screen and (max-width: 600px) {
