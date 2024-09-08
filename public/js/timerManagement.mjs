@@ -29,7 +29,7 @@ export function timerManagement() {
   completeButton.addEventListener('click', () => {
     timer.timerComplete();
     toggleVisibleButton(completeButton);
-    controlEndTodaysStudy()
+    controlEndTodaysStudy();
   });
   endTodaysStudy.addEventListener('click', () => timer.displayStudyHistoryAtModal());
 

@@ -2,6 +2,7 @@ import { Modal } from "./Modal.mjs";
 import { sendLocalStorageData } from "./sendLocalStorageData.mjs";
 import { renderShelf } from "./renderShelf.mjs";
 import { refreshTable } from "./displayStudyHistoryAtModal.mjs";
+import { setTotalStudyTime } from "./setTotalStudyTime.mjs";
 
 // メイン関数
 export function addEventListener() {
@@ -47,6 +48,7 @@ export function addEventListener() {
         });
         // 偉人モーダルを閉じる
         addClickListener(ijinModalCloseButton, () => {
+            setTotalStudyTime();
             localStorage.clear(); // ローカルストレージを消す。
             refreshTable();
             renderShelf();
