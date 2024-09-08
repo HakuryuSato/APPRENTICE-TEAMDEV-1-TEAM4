@@ -13,4 +13,11 @@
         padding: 2% 0;
 
     }
+
+    /* 600pxでブレイクポイントを設定（スマホ <-> タブレット、PC想定） */
+    @media screen and (max-width: 600px) {
+        .shelf-container {
+            padding: 5% 0;
+        }
+    }
 </style>
